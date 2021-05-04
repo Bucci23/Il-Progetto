@@ -1,6 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * COMMENTO!
+ */
 public class MainFrame extends JFrame {
     public MainFrame(){
         super("Bouncing Ball");
