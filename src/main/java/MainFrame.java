@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * COMMENTO!
+ * COMMENTO visto!
  */
 public class MainFrame extends JFrame {
     public MainFrame(){
