@@ -5,16 +5,21 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.Serial;
 import java.util.ArrayList;
 
 import java.util.Random;
 
 public class BallPanel extends JPanel implements KeyListener, ActionListener {
+    @Serial
     private static final long serialVersionUID = 1L;
     JFrame parent;
     Timer timer;
     ArrayList<GameObject> lgo;
+    int bX;
+    int bY;
     Random rnd;
+    ImageIcon background;
     boolean scrollingR = false;
     boolean scrollingL = false;
     boolean scrollingU = false;
@@ -34,18 +39,20 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
     public void init() {
 
         lgo = new ArrayList<GameObject>();
+        background= new ImageIcon("images/Cimone.jpg");
         lgo.add(new Ball(this, lgo, 60, 60, getWidth(), getHeight(), 1, 1, Color.BLUE));
-        lgo.add(1, new Ground(this, lgo, 300, 400, 200, 600, 0, 0, Color.BLACK));
-        lgo.add(2, new Ground(this, lgo, 300, 400, 1000, 300, 0, 0, Color.RED));
-        lgo.add(3, new Ground(this, lgo, 300, 400, 1800, 500, 0, 0, Color.RED));
-        lgo.add(4, new Ground(this, lgo, 300, 400, 2500, 200, 0, 0, Color.RED));
-        lgo.add(5, new Ground(this, lgo, 300, 400, 3000, 100, 0, 0, Color.RED));
-        lgo.add(6, new Ground(this, lgo, 300, 400, 200, 0, 0, 0, Color.BLACK));
-
+        lgo.add(1, new Ground(this, lgo, 300, 400, 200, 600, 0, 0, "images/Ground.png" ));
+        lgo.add(2, new Ground(this, lgo, 600, 400, 1000, 300, 0, 0, "images/G600x400.png"));
+        lgo.add(3, new Ground(this, lgo, 600, 200, 1800, 500, 0, 0, "images/G600x200.png"));
+        lgo.add(4, new Ground(this, lgo, 300, 400, 2500, 200, 0, 0, "images/Ground.png"));
+        lgo.add(5, new Ground(this, lgo, 300, 400, 3000, 100, 0, 0, "images/Ground.png"));
+        lgo.add(6, new Ground(this, lgo, 300, 400, 200, 0, 0, 0, "images/Ground.png"));
+        bX=0;
+        bY=0;
         ground=900;
         sceneSpeedX = 0;
         sceneSpeedY =0;
-        timer = new Timer(20, this);
+        timer = new Timer(20, this)
         timer.start();
     }
 
@@ -138,7 +145,10 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
             stopSceneY();
         }
     }
-
+    public void bUpdate() {
+        bX+=(sceneSpeedX/3);
+        bY+=(sceneSpeedY/3);
+    }
     public void groundUpdate(){
         ground-=sceneSpeedY;
     }
@@ -149,13 +159,16 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
             leftBound();
             upperBound();
             lowerBound();
+            bUpdate();
             repaint();
         }
     }
 
     @Override
     public void paintComponent(Graphics g) {
+
         super.paintComponent(g);
+        background.paintIcon(this,g,bX,bY);
         for (GameObject go : lgo) {
             go.update();
             go.paint(g);
@@ -188,5 +201,6 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
     public void keyReleased(KeyEvent e) {
 
     }
+
 
 }

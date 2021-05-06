@@ -3,8 +3,8 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class Ground extends AbstractGameObject{
-    Color color;
-    public Ground(JPanel parent, ArrayList<GameObject> lgo, int w, int h, int x, int y, int speedX, int speedY, Color color) {
+    ImageIcon icon;
+    public Ground(JPanel parent, ArrayList<GameObject> lgo, int w, int h, int x, int y, int speedX, int speedY, String path) {
         this.parent = parent;
         this.lgo = lgo;
         this.w = w;
@@ -13,7 +13,7 @@ public class Ground extends AbstractGameObject{
         this.y = y;
         this.speedX = speedX;
         this.speedY = speedY;
-        this.color=color;
+        icon= new ImageIcon(path);
     }
 
     @Override
@@ -23,7 +23,6 @@ public class Ground extends AbstractGameObject{
 
     @Override
     public void paint(Graphics g) {
-        ImageIcon icon = new ImageIcon("images/Ground.png");
         icon.paintIcon(parent,g,x,y);
     }
 
