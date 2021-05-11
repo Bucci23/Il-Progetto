@@ -2,9 +2,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class Ground extends AbstractGameObject{
-    ImageIcon icon;
-    public Ground(JPanel parent, ArrayList<GameObject> lgo, int w, int h, int x, int y, int speedX, int speedY, String path) {
+public class Ground extends AbstractGameObject {
+    ImageIcon[] icons;
+    int nGrass;
+    int nSimple;
+
+    public Ground(JPanel parent, ArrayList<GameObject> lgo, int w, int h, int x, int y, int speedX, int speedY, String pathG, String pathS) {
         this.parent = parent;
         this.lgo = lgo;
         this.w = w;
@@ -13,7 +16,10 @@ public class Ground extends AbstractGameObject{
         this.y = y;
         this.speedX = speedX;
         this.speedY = speedY;
-        icon= new ImageIcon(path);
+        icons = new ImageIcon[2];
+        icons[0] = new ImageIcon(pathG);
+        icons[1] = new ImageIcon(pathS);
+        imagecalc();
     }
 
     @Override
@@ -21,13 +27,25 @@ public class Ground extends AbstractGameObject{
         newPositions();
     }
 
+    void imagecalc() {
+        nGrass = w / 50;
+        nSimple = (w * h) / (50 * 50) - nGrass;
+    }
+
     @Override
     public void paint(Graphics g) {
-        icon.paintIcon(parent,g,x,y);
+        for (int i = x; i < x + w; i += 50) {
+            icons[0].paintIcon(parent, g, i, y);
+        }
+        for (int i = x; i < x + w; i += 50) {
+            for (int j = y + 50; j < y + h; j += 50) {
+                icons[1].paintIcon(parent, g, i, j);
+            }
+        }
     }
 
     @Override
     public Rectangle getBounds() {
-        return new Rectangle(x,y,w,h);
+        return new Rectangle(x, y, w, h);
     }
 }

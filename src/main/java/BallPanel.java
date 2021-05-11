@@ -41,18 +41,19 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         lgo = new ArrayList<GameObject>();
         background= new ImageIcon("images/Cimone.jpg");
         lgo.add(new Ball(this, lgo, 60, 60, getWidth(), getHeight(), 1, 1, Color.BLUE));
-        lgo.add(1, new Ground(this, lgo, 300, 400, 200, 600, 0, 0, "images/Ground.png" ));
-        lgo.add(2, new Ground(this, lgo, 600, 400, 1000, 300, 0, 0, "images/G600x400.png"));
-        lgo.add(3, new Ground(this, lgo, 600, 200, 1800, 500, 0, 0, "images/G600x200.png"));
-        lgo.add(4, new Ground(this, lgo, 300, 400, 2500, 200, 0, 0, "images/Ground.png"));
-        lgo.add(5, new Ground(this, lgo, 300, 400, 3000, 100, 0, 0, "images/Ground.png"));
-        lgo.add(6, new Ground(this, lgo, 300, 400, 200, 0, 0, 0, "images/Ground.png"));
+        lgo.add(1, new Ground(this, lgo, 300, 400, 200, 600, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
+        lgo.add(2, new Ground(this, lgo, 600, 400, 1000, 300, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
+        lgo.add(3, new Ground(this, lgo, 600, 200, 1800, 500, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
+        lgo.add(4, new Ground(this, lgo, 300, 400, 2500, 200, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
+        lgo.add(5, new Ground(this, lgo, 300, 400, 3000, 100, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
+        lgo.add(6, new Ground(this, lgo, 300, 400, 200, 0, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
+        lgo.add(6, new Ground(this, lgo, 700, 50, 4000, 500, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
         bX=0;
-        bY=0;
+        bY=-500;
         ground=900;
         sceneSpeedX = 0;
         sceneSpeedY =0;
-        timer = new Timer(20, this)
+        timer = new Timer(20, this);
         timer.start();
     }
 
@@ -116,7 +117,6 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         Ball b = (Ball) lgo.get(0);
         System.out.println(ground);
         if (b.getY() < 300 && b.speedY < 0) {
-            System.out.println("scrollo in su!");
             scrollingU = true;
             moveSceneUp();
         } else if (b.getY() > 300 || b.getSpeedY() > 0)
@@ -136,7 +136,6 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         Ball b = (Ball) lgo.get(0);
         groundUpdate();
         if ((b.getY() > this.getHeight() - 300 && b.speedY > 0) && ground < this.getHeight()) {
-            System.out.println("scrollo in giu!");
             scrollingD = true;
             moveSceneDown();
         } else if (b.getY() + b.getH() < this.getHeight() - 300 - b.getH() || b.getSpeedY() < 0 ||  ground >= this.getHeight())
@@ -147,7 +146,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
     }
     public void bUpdate() {
         bX+=(sceneSpeedX/3);
-        bY+=(sceneSpeedY/3);
+        bY+=(sceneSpeedY/6);
     }
     public void groundUpdate(){
         ground-=sceneSpeedY;
@@ -186,10 +185,10 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
             return;
         }
         Ball mainBall = ((Ball) lgo.get(0));
-        if (e.getKeyChar() == 'd') {
+        if (e.getKeyChar() == 'd' || e.getKeyChar() == 'D') {
             mainBall.goRight();
         }
-        if (e.getKeyChar() == 'a') {
+        if (e.getKeyChar() == 'a' || e.getKeyChar() == 'A') {
             mainBall.goLeft();
         }
         if (e.getKeyChar() == ' ') {
