@@ -39,7 +39,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
     public void init() {
 
         lgo = new ArrayList<GameObject>();
-        background= new ImageIcon("images/Cimone.jpg");
+        background = new ImageIcon("images/Cimone.jpg");
         lgo.add(new Ball(this, lgo, 60, 60, getWidth(), getHeight(), 1, 1, Color.BLUE));
         lgo.add(1, new Ground(this, lgo, 300, 400, 200, 600, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
         lgo.add(2, new Ground(this, lgo, 600, 400, 1000, 300, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
@@ -48,12 +48,15 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         lgo.add(5, new Ground(this, lgo, 300, 400, 3000, 100, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
         lgo.add(6, new Ground(this, lgo, 300, 400, 200, 0, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
         lgo.add(7, new Ground(this, lgo, 700, 50, 4000, 500, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
-        lgo.add(8,new NemicoLV1(this,lgo,1100,100,"images/nemico.png","images/nemico.png"));
-        bX=0;
-        bY=-500;
-        ground=900;
+        lgo.add(8, new Ground(this, lgo, 10000, 100, 0, 800, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
+        lgo.add(9, new NemicoLV1(this, lgo, 1100, 100, "images/nemico.png", "images/nemico.png"));
+        lgo.add(10, new NemicoLV1(this, lgo, 1500, 100, "images/nemico.png", "images/nemico.png"));
+        lgo.add(11, new NemicoLV1(this, lgo, 2000, 100, "images/nemico.png", "images/nemico.png"));
+        bX = 0;
+        bY = -500;
+        ground = 900;
         sceneSpeedX = 0;
-        sceneSpeedY =0;
+        sceneSpeedY = 0;
         timer = new Timer(20, this);
         timer.start();
     }
@@ -78,6 +81,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
     public void stopSceneX() {
         this.sceneSpeedX = 0;
     }
+
     public void stopSceneY() {
         this.sceneSpeedY = 0;
     }
@@ -126,32 +130,37 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
             stopSceneY();
         }
     }
-    public void moveSceneDown(){
+
+    public void moveSceneDown() {
         Ball b = (Ball) lgo.get(0);
         if (b.getSpeedY() + sceneSpeedY > 0) {
             sceneSpeedY = -b.getSpeedY();
 
         }
     }
-    public void lowerBound(){
+
+    public void lowerBound() {
         Ball b = (Ball) lgo.get(0);
         groundUpdate();
         if ((b.getY() > this.getHeight() - 300 && b.speedY > 0) && ground < this.getHeight()) {
             scrollingD = true;
             moveSceneDown();
-        } else if (b.getY() + b.getH() < this.getHeight() - 300 - b.getH() || b.getSpeedY() < 0 ||  ground >= this.getHeight())
+        } else if (b.getY() + b.getH() < this.getHeight() - 300 - b.getH() || b.getSpeedY() < 0 || ground >= this.getHeight())
             scrollingD = false;
         if (!scrollingU && !scrollingD) {
             stopSceneY();
         }
     }
+
     public void bUpdate() {
-        bX+=(sceneSpeedX/3);
-        bY+=(sceneSpeedY/6);
+        bX += (sceneSpeedX / 3);
+        bY += (sceneSpeedY / 6);
     }
-    public void groundUpdate(){
-        ground-=sceneSpeedY;
+
+    public void groundUpdate() {
+        ground -= sceneSpeedY;
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == timer) {
@@ -169,7 +178,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
     public void paintComponent(Graphics g) {
 
         super.paintComponent(g);
-        background.paintIcon(this,g,bX,bY);
+        background.paintIcon(this, g, bX, bY);
         for (GameObject go : lgo) {
             go.update();
             go.paint(g);

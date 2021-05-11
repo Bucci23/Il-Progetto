@@ -56,7 +56,8 @@ public abstract class Personaggio extends AbstractGameObject{
 
     public void floorCollisions() {
         if (y >= parent.getHeight() - w && !onGround) {
-            floorBounce(parent.getHeight() - w);
+            if(this instanceof Ball)
+                floorBounce(parent.getHeight() - h);
         } else
             onGround = false;
     }
@@ -67,7 +68,7 @@ public abstract class Personaggio extends AbstractGameObject{
             if (go != this) {
                 if (go instanceof Ground)
                     groundCollide((Ground) go);
-                if(go instanceof NemicoLV1){
+                if(go instanceof NemicoLV1 && this instanceof Ball){
                     enemyCollide((NemicoLV1) go);
                 }
 
@@ -86,15 +87,15 @@ public abstract class Personaggio extends AbstractGameObject{
     }
     public void groundCollide(Ground g){
         if (this.getBounds().intersects(g.getBounds())) {
-            if (this.y > g.getY() && this.y + w < (g.getY() + g.getH())) {
+            if (this.y > g.getY() && this.y + h < (g.getY() + g.getH())) {
                 if (this.x < g.getX())
                     wallBounce(g.getX() - w);
                 else if (this.x + w > g.getX() + g.getW())
                     wallBounce(g.getX() + g.getW());
             } else {
-                if (this.x > g.getX() && this.x + w < g.getX() + g.getW()) {
+                if (this.x > g.getX() && this.x + h < g.getX() + g.getW()) {
                     if (this.y < g.getY()) {
-                        floorBounce(g.getY() - w);
+                        floorBounce(g.getY() - h);
                     } else {
                         roofBounce(g.getY() + g.getH());
                     }
