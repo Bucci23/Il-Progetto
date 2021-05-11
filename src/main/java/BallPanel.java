@@ -47,7 +47,8 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         lgo.add(4, new Ground(this, lgo, 300, 400, 2500, 200, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
         lgo.add(5, new Ground(this, lgo, 300, 400, 3000, 100, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
         lgo.add(6, new Ground(this, lgo, 300, 400, 200, 0, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
-        lgo.add(6, new Ground(this, lgo, 700, 50, 4000, 500, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
+        lgo.add(7, new Ground(this, lgo, 700, 50, 4000, 500, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
+        lgo.add(8,new NemicoLV1(this,lgo,1100,100,"images/nemico.png","images/nemico.png"));
         bX=0;
         bY=-500;
         ground=900;
@@ -159,6 +160,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
             upperBound();
             lowerBound();
             bUpdate();
+            System.out.println(((Ball) lgo.get(0)).vita);
             repaint();
         }
     }
@@ -192,7 +194,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
             mainBall.goLeft();
         }
         if (e.getKeyChar() == ' ') {
-            mainBall.jump();
+            mainBall.jump(false);
         }
     }
 
