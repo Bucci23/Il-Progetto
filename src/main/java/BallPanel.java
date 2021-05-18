@@ -8,6 +8,7 @@ import java.awt.event.KeyListener;
 import java.io.Serial;
 import java.util.ArrayList;
 
+import java.util.Iterator;
 import java.util.Random;
 
 public class BallPanel extends JPanel implements KeyListener, ActionListener {
@@ -157,6 +158,32 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         bY += (sceneSpeedY / 6);
     }
 
+    private void shootUpdate() {
+        Iterator<GameObject> i = lgo.iterator();
+        while(i.hasNext()){
+            GameObject g = i.next();
+            if(g instanceof Fuoco) {
+                Fuoco f =(Fuoco) g;
+                if(!f.existing){
+                    i.remove();
+                }
+            }
+        }
+    }
+
+    private void enemyUpdate(){
+        Iterator<GameObject> i = lgo.iterator();
+        while(i.hasNext()){
+            GameObject g = i.next();
+            if(g instanceof Nemico) {
+                Nemico n =(Nemico) g;
+                if(!n.existing){
+                    i.remove();
+                }
+            }
+        }
+    }
+
     public void groundUpdate() {
         ground -= sceneSpeedY;
     }
@@ -169,10 +196,14 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
             upperBound();
             lowerBound();
             bUpdate();
+            shootUpdate();
+            enemyUpdate();
             System.out.println(((Ball) lgo.get(0)).vita);
             repaint();
         }
     }
+
+
 
     @Override
     public void paintComponent(Graphics g) {

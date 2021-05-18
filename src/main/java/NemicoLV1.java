@@ -18,6 +18,7 @@ public class NemicoLV1 extends Nemico {
         this.r = new ImageIcon(r);
         icon = this.r;
         standardSpeedX = -5;
+        this.existing=true;
 
     }
 
@@ -27,6 +28,7 @@ public class NemicoLV1 extends Nemico {
         jumpUpdate();
         floorCollisions();
         isColliding();
+        shootCollision();
         if(Math.abs(this.x-lgo.get(0).getX()) < 800)
             movimento();
         newPositions();

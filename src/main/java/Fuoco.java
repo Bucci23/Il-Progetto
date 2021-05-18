@@ -27,8 +27,9 @@ public class Fuoco extends AbstractGameObject {
         this.speedX = standardSpeed;
         this.speedY = 0;
         isHitting();
-        existenceUpdate();
+        isOnScreen();
         newPositions();
+
     }
 
     @Override
@@ -40,7 +41,11 @@ public class Fuoco extends AbstractGameObject {
         icon.paintIcon(parent, g, x, y);
 
     }
-
+    void isOnScreen(){
+        if(this.x > parent.getWidth() || this.x < 0){
+            this.setExisting(false);
+        }
+    }
     public void isHitting() {
         for (GameObject go : lgo) {
             if (go != this && !(go instanceof Ball )) {
@@ -50,11 +55,11 @@ public class Fuoco extends AbstractGameObject {
         }
     }
 
-    void setExisting(boolean existing) {
+    public void setExisting(boolean existing) {
         this.existing = existing;
     }
 
-    void existenceUpdate() {
+    public void existenceUpdate() {
         if (!existing) {
             lgo.remove(this);
         }
