@@ -23,19 +23,19 @@ public abstract class Personaggio extends AbstractGameObject{
 
     public void goRight() {
         icon=r;
-        if (this.getSpeedX() < 20)
+        if (this.getSpeedX() < 15)
             this.setSpeedX(this.getSpeedX() + 2);
     }
 
     public void goLeft() {
         icon=l;
-        if (this.getSpeedX() > -20)
+        if (this.getSpeedX() > -15)
             this.setSpeedX(this.getSpeedX() - 2);
     }
 
     public void jump(boolean enemy) {
         if (!this.isJumping || enemy) {
-            this.setSpeedY(-30);
+            this.setSpeedY(-25);
             this.setJumping(true);
         }
     }

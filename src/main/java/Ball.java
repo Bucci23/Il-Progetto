@@ -9,7 +9,6 @@ public class Ball extends Personaggio {
     Color color;
 
 
-
     public Ball(JPanel parent, ArrayList<GameObject> lgo, int w, int h, int x, int y, int speedX, int speedY, Color color) {
         this.parent = parent;
         this.lgo = lgo;
@@ -25,10 +24,14 @@ public class Ball extends Personaggio {
         this.r = new ImageIcon("images/mostro.png");
         this.l = new ImageIcon("images/mostroSpecchiato.png");
         icon = r;
-        this.vita=10;
+        this.vita = 10;
     }
-    void shoot(){
-        lgo.add(new Fuoco(parent,lgo,5,"images/fuoco.png","images/fuoco.png",x+w,y-h/2));
+
+    void shoot() {
+        if (icon == r)
+            lgo.add(new Fuoco(parent, lgo, 30, "images/fuoco.png", "images/fuocoSpecchiato.png", x + w, y + h / 3));
+        if (icon == l)
+            lgo.add(new Fuoco(parent, lgo, -30, "images/fuoco.png", "images/fuocoSpecchiato.png", x - w, y + h / 3));
     }
 
 
@@ -45,6 +48,6 @@ public class Ball extends Personaggio {
 
     @Override
     public void paint(Graphics g) {
-        icon.paintIcon(parent,g,x,y);
+        icon.paintIcon(parent, g, x, y);
     }
 }

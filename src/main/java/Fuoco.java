@@ -43,7 +43,7 @@ public class Fuoco extends AbstractGameObject {
 
     public void isHitting() {
         for (GameObject go : lgo) {
-            if (go != this) {
+            if (go != this && !(go instanceof Ball )) {
                 if (this.getBounds().intersects(go.getBounds()))
                     setExisting(false);
             }
