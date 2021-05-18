@@ -51,6 +51,10 @@ public class NemicoLV1 extends Nemico {
         }
         if(jmp==2){
             standardSpeedX = -standardSpeedX;
+            if(icon == l){
+                icon=r;
+            }
+            else icon = l;
         }
     }
 

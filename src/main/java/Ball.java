@@ -27,6 +27,10 @@ public class Ball extends Personaggio {
         icon = r;
         this.vita=10;
     }
+    void shoot(){
+        lgo.add(new Fuoco(parent,lgo,5,"images/fuoco.png","images/fuoco.png",x+w,y-h/2));
+    }
+
 
     @Override
     public void update() {
