@@ -6,14 +6,13 @@ import java.awt.*;
  * visto
  */
 public class MainFrame extends JFrame {
-    public MainFrame(){
-        super("Bouncing Ball");
-        BallPanel p1= new BallPanel();
-        JPanel p2=new JPanel(new BorderLayout());
+    public MainFrame() {
+        super("Scratch!");
+        BallPanel p1 = new BallPanel();
+        JPanel p2 = new JPanel(new BorderLayout());
         p1.init();
-        add(BorderLayout.CENTER,p1);
-        add(BorderLayout.PAGE_END, p2);
-
+        add(BorderLayout.CENTER, p1);
+        add(BorderLayout.PAGE_START, p2);
         setSize(1440, 900);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);

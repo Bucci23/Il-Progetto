@@ -61,6 +61,10 @@ public class NemicoLV1 extends Nemico {
     }
 
     @Override
+    public void enemyCollide(NemicoLV1 n) {
+    }
+
+    @Override
     public void shoot() {
 
     }

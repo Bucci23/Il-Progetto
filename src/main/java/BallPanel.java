@@ -28,7 +28,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
     int sceneSpeedX;
     int sceneSpeedY;
     int ground;
-
+    Skills skills;
 
     public BallPanel() {
         rnd = new Random();
@@ -53,6 +53,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         lgo.add(9, new NemicoLV1(this, lgo, 1100, 100, "images/dinoL.png", "images/dinoR.png"));
         lgo.add(10, new NemicoLV1(this, lgo, 1500, 100, "images/dinoL.png", "images/dinoR.png"));
         lgo.add(11, new NemicoLV1(this, lgo, 2000, 100, "images/dinoL.png", "images/dinoR.png"));
+        skills = new Skills((Ball) lgo.get(0));
         bX = 0;
         bY = -500;
         ground = 900;
@@ -60,6 +61,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         sceneSpeedY = 0;
         timer = new Timer(20, this);
         timer.start();
+
     }
 
     public void moveSceneRight() {
@@ -121,7 +123,6 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
 
     public void upperBound() {
         Ball b = (Ball) lgo.get(0);
-        System.out.println(ground);
         if (b.getY() < 300 && b.speedY < 0) {
             scrollingU = true;
             moveSceneUp();
@@ -214,6 +215,8 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
             go.update();
             go.paint(g);
         }
+        skills.update();
+        skills.paint(g);
     }
 
     @Override

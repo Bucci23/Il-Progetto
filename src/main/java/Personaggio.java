@@ -8,6 +8,7 @@ public abstract class Personaggio extends AbstractGameObject{
     ImageIcon l;
     ImageIcon r;
     boolean isJumping;
+    boolean isHittingEnemy;
     @Override
     public Rectangle getBounds() {
         return new Rectangle(x, y, w, h);
@@ -68,7 +69,7 @@ public abstract class Personaggio extends AbstractGameObject{
             if (go != this) {
                 if (go instanceof Ground)
                     groundCollide((Ground) go);
-                if(go instanceof NemicoLV1 && this instanceof Ball){
+                if(go instanceof NemicoLV1){
                     enemyCollide((NemicoLV1) go);
                 }
 
@@ -105,12 +106,7 @@ public abstract class Personaggio extends AbstractGameObject{
             }
         }
     }
-    public void enemyCollide(NemicoLV1 n){
-        if(this.getBounds().intersects(n.getBounds())){
-            this.vita--;
-            this.jump(true);
-        }
-    }
+    public abstract void enemyCollide(NemicoLV1 n);
 
     public void floorBounce(int y) {
         if (speedY > 0)
