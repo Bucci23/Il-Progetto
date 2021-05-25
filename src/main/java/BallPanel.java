@@ -40,7 +40,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
     public void init() {
 
         lgo = new ArrayList<GameObject>();
-        background = new ImageIcon("images/Cimone.jpg");
+        background = new ImageIcon("images/SfondoStrano.png");
         lgo.add(new Ball(this, lgo, 60, 60, getWidth(), getHeight(), 1, 1, Color.BLUE));
         lgo.add(1, new Ground(this, lgo, 300, 400, 200, 600, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
         lgo.add(2, new Ground(this, lgo, 600, 400, 1000, 300, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
@@ -49,13 +49,15 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         lgo.add(5, new Ground(this, lgo, 300, 400, 3000, 100, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
         lgo.add(6, new Ground(this, lgo, 300, 400, 200, 0, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
         lgo.add(7, new Ground(this, lgo, 700, 50, 4000, 500, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
-        lgo.add(8, new Ground(this, lgo, 10000, 100, 0, 800, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
-        lgo.add(9, new NemicoLV1(this, lgo, 1100, 100, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add( new Ground(this, lgo, 300, 100, 1200, 0, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
+        lgo.add( new Ground(this, lgo, 350, 150, 1500, -200, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
+        lgo.add( new Ground(this, lgo, 10000, 100, 0, 800, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
+        lgo.add( new NemicoLV1(this, lgo, 1100, 100, "images/dinoL.png", "images/dinoR.png"));
         lgo.add(10, new NemicoLV1(this, lgo, 1500, 100, "images/dinoL.png", "images/dinoR.png"));
         lgo.add(11, new NemicoLV1(this, lgo, 2000, 100, "images/dinoL.png", "images/dinoR.png"));
-        skills = new Skills((Ball) lgo.get(0));
+        skills = new Skills((Ball) lgo.get(0), this);
         bX = 0;
-        bY = -500;
+        bY = -2000;
         ground = 900;
         sceneSpeedX = 0;
         sceneSpeedY = 0;

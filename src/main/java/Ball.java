@@ -12,6 +12,7 @@ public class Ball extends Personaggio implements ActionListener {
     Color color;
     boolean isShooting;
     Timer shootDelay;
+    Timer hitDelay;
     int munizioni;
 
     public Ball(JPanel parent, ArrayList<GameObject> lgo, int w, int h, int x, int y, int speedX, int speedY, Color color) {
@@ -33,6 +34,8 @@ public class Ball extends Personaggio implements ActionListener {
         isShooting = false;
         shootDelay = new Timer(500, this);
         munizioni = 10;
+        isHittingEnemy = false;
+        hitDelay = new Timer(1000,this);
     }
 
     void shoot() {
@@ -66,10 +69,9 @@ public class Ball extends Personaggio implements ActionListener {
                 this.vita--;
                 this.jump(true);
                 isHittingEnemy = true;
+                hitDelay.start();
                 System.out.println("Ho tolto vita ");
             }
-        } else {
-            isHittingEnemy = false;
         }
     }
 
@@ -83,6 +85,10 @@ public class Ball extends Personaggio implements ActionListener {
         if (e.getSource() == shootDelay) {
             isShooting = false;
             shootDelay.stop();
+        }
+        if(e.getSource() == hitDelay){
+            isHittingEnemy = false;
+            hitDelay.stop();
         }
     }
 }

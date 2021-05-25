@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="958a0c82-2e9f-431c-bb90-7b1e26aacc6f" name="Default Changelist" comment="spara meglio">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Skills.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/Cuore.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/SfondoStrano.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
@@ -14,17 +15,13 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/AbstractGameObject.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Ball.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Ball.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/BallPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/MainFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/BallPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/BallPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/fuoco.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/fuoco.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ball.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BallPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BallPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/NemicoLV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NemicoLV1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Personaggio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Personaggio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Skills.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Skills.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,10 +61,11 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../test libgdx/build.gradle" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../.." />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager" selected="Application.MainFrame">
     <configuration name="CelsiusConverter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -203,7 +201,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621351625904</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="spara meglio">
+      <created>1621865692928</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1621865692928</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

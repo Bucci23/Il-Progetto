@@ -122,7 +122,7 @@ public abstract class Personaggio extends AbstractGameObject{
     }
 
     public void wallBounce(int x) {
-        speedX = -speedX;
+        speedX = -speedX/2;
         this.x = x;
     }
 }
