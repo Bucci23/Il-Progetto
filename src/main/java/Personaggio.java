@@ -72,10 +72,15 @@ public abstract class Personaggio extends AbstractGameObject{
                 if(go instanceof NemicoLV1){
                     enemyCollide((NemicoLV1) go);
                 }
+                if(go instanceof Coin){
+                    coinCollect((Coin) go);
+                }
 
             }
         }
     }
+
+    public abstract void coinCollect(Coin coin);
 
     private void cornerBounce(Ground g) {
         if(this.y<g.getY()){

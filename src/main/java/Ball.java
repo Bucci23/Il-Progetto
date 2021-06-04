@@ -14,6 +14,7 @@ public class Ball extends Personaggio implements ActionListener {
     Timer shootDelay;
     Timer hitDelay;
     int munizioni;
+    int monete;
 
     public Ball(JPanel parent, ArrayList<GameObject> lgo, int w, int h, int x, int y, int speedX, int speedY, Color color) {
         this.parent = parent;
@@ -35,7 +36,8 @@ public class Ball extends Personaggio implements ActionListener {
         shootDelay = new Timer(500, this);
         munizioni = 10;
         isHittingEnemy = false;
-        hitDelay = new Timer(1000,this);
+        hitDelay = new Timer(1000, this);
+        monete = 0;
     }
 
     void shoot() {
@@ -63,6 +65,13 @@ public class Ball extends Personaggio implements ActionListener {
     }
 
     @Override
+    public void coinCollect(Coin coin) {
+        monete++;
+        coin.setExisting(false);
+
+    }
+
+    @Override
     public void enemyCollide(NemicoLV1 n) {
         if (this.getBounds().intersects(n.getBounds())) {
             if (!isHittingEnemy) {
@@ -85,7 +94,7 @@ public class Ball extends Personaggio implements ActionListener {
             isShooting = false;
             shootDelay.stop();
         }
-        if(e.getSource() == hitDelay){
+        if (e.getSource() == hitDelay) {
             isHittingEnemy = false;
             hitDelay.stop();
         }

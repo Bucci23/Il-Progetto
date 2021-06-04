@@ -49,12 +49,21 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         lgo.add(5, new Ground(this, lgo, 300, 400, 3000, 100, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
         lgo.add(6, new Ground(this, lgo, 300, 400, 200, 0, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
         lgo.add(7, new Ground(this, lgo, 700, 50, 4000, 500, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
-        lgo.add( new Ground(this, lgo, 300, 100, 1200, 0, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
-        lgo.add( new Ground(this, lgo, 350, 150, 1500, -200, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
-        lgo.add( new Ground(this, lgo, 10000, 100, 0, 800, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
-        lgo.add( new NemicoLV1(this, lgo, 1100, 100, "images/dinoL.png", "images/dinoR.png"));
-        lgo.add(10, new NemicoLV1(this, lgo, 1500, 100, "images/dinoL.png", "images/dinoR.png"));
-        lgo.add(11, new NemicoLV1(this, lgo, 2000, 100, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new Ground(this, lgo, 300, 100, 1200, 0, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
+        lgo.add(new Ground(this, lgo, 350, 150, 1500, -200, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
+        lgo.add(new Ground(this, lgo, 10000, 100, 0, 800, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
+        lgo.add(new NemicoLV1(this, lgo, 1100, 100, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new NemicoLV1(this, lgo, 1500, 100, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new NemicoLV1(this, lgo, 2000, 500, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new NemicoLV1(this, lgo, 2500, 100, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new NemicoLV1(this, lgo, 2800, 100, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new NemicoLV1(this, lgo, 2900, 100, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new NemicoLV1(this, lgo, 3000, 100, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new Coin(this, lgo,700 , 750, "images/moneta.png"));
+        lgo.add(new Coin(this, lgo, 200, 100, "images/moneta.png"));
+        lgo.add(new Coin(this, lgo, 500, 400, "images/moneta.png"));
+
+
         skills = new Skills((Ball) lgo.get(0), this);
         bX = 0;
         bY = -2000;
@@ -163,24 +172,37 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
 
     private void shootUpdate() {
         Iterator<GameObject> i = lgo.iterator();
-        while(i.hasNext()){
+        while (i.hasNext()) {
             GameObject g = i.next();
-            if(g instanceof Fuoco) {
-                Fuoco f =(Fuoco) g;
-                if(!f.existing){
+            if (g instanceof Fuoco) {
+                Fuoco f = (Fuoco) g;
+                if (!f.existing) {
                     i.remove();
                 }
             }
         }
     }
 
-    private void enemyUpdate(){
+    private void enemyUpdate() {
         Iterator<GameObject> i = lgo.iterator();
-        while(i.hasNext()){
+        while (i.hasNext()) {
             GameObject g = i.next();
-            if(g instanceof Nemico) {
-                Nemico n =(Nemico) g;
-                if(!n.existing){
+            if (g instanceof Nemico) {
+                Nemico n = (Nemico) g;
+                if (!n.existing) {
+                    i.remove();
+                }
+            }
+        }
+    }
+
+    void coinUpdate() {
+        Iterator<GameObject> i = lgo.iterator();
+        while (i.hasNext()) {
+            GameObject g = i.next();
+            if (g instanceof Coin) {
+                Coin n = (Coin) g;
+                if (!n.existing) {
                     i.remove();
                 }
             }
@@ -201,10 +223,10 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
             bUpdate();
             shootUpdate();
             enemyUpdate();
+            //coinUpdate();
             repaint();
         }
     }
-
 
 
     @Override
@@ -240,7 +262,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         if (e.getKeyChar() == ' ') {
             mainBall.jump(false);
         }
-        if(e.getKeyChar() == 'f' ||e.getKeyChar() == 'F' ){
+        if (e.getKeyChar() == 'f' || e.getKeyChar() == 'F') {
             mainBall.shoot();
         }
     }

@@ -61,6 +61,11 @@ public class NemicoLV1 extends Nemico {
     }
 
     @Override
+    public void coinCollect(Coin coin) {
+
+    }
+
+    @Override
     public void enemyCollide(NemicoLV1 n) {
     }
 
