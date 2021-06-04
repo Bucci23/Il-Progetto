@@ -67,9 +67,10 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         skills = new Skills((Ball) lgo.get(0), this);
         bX = 0;
         bY = -2000;
-        ground = 900;
+        ground = 0;
         sceneSpeedX = 0;
         sceneSpeedY = 0;
+
         timer = new Timer(20, this);
         timer.start();
 

@@ -13,7 +13,7 @@ public class MainFrame extends JFrame {
         p1.init();
         add(BorderLayout.CENTER, p1);
         add(BorderLayout.PAGE_START, p2);
-        setSize(1440, 900);
+        setSize(1280, 720);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
