@@ -223,7 +223,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
             bUpdate();
             shootUpdate();
             enemyUpdate();
-            //coinUpdate();
+            coinUpdate();
             repaint();
         }
     }

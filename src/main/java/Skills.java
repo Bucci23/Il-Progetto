@@ -9,10 +9,12 @@ public class Skills implements GameObject {
     Ball mainBall;
     ImageIcon ammoIcon;
     ImageIcon heartIcon;
+    ImageIcon coinIcon;
     Skills(Ball mainBall, JPanel parent){
         this.mainBall = mainBall;
         ammoIcon = new ImageIcon("images/Fuoco.png");
         this.heartIcon = new ImageIcon("images/Cuore.png");
+        this.coinIcon = new ImageIcon("images/moneta.png");
         this.parent = parent;
     }
 
@@ -24,8 +26,6 @@ public class Skills implements GameObject {
     @Override
     public void paint(Graphics g) {
         int base = 30;
-        //g.setColor(Color.black);
-        //g.fillRoundRect(x,y,400,200,50,50);
         g.setColor(Color.RED);
         for(int i=0;i< mainBall.vita;++i){
             heartIcon.paintIcon(parent,g,base + 30 * i, 30);
@@ -34,6 +34,9 @@ public class Skills implements GameObject {
         ammoIcon.paintIcon(parent, g, 50, 80);
         g.setColor(Color.WHITE);
         g.drawString(": "+ mainBall.munizioni,90,100);
+        coinIcon.paintIcon(parent, g,50, 130);
+        g.drawString(": "+ mainBall.monete, 90, 160);
+
 
     }
 
