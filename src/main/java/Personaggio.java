@@ -112,6 +112,7 @@ public abstract class Personaggio extends AbstractGameObject{
         if (speedY > 0)
             speedY = -speedY / 2;
         speedX = speedX * 4 / 5;
+
         this.y = y;
         onGround = true;
     }

@@ -70,7 +70,6 @@ public class Ball extends Personaggio implements ActionListener {
                 this.jump(true);
                 isHittingEnemy = true;
                 hitDelay.start();
-                System.out.println("Ho tolto vita ");
             }
         }
     }

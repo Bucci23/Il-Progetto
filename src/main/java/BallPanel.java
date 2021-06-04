@@ -201,7 +201,6 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
             bUpdate();
             shootUpdate();
             enemyUpdate();
-            System.out.println(((Ball) lgo.get(0)).vita);
             repaint();
         }
     }
