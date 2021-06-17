@@ -2,16 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class Coin extends PowerUp {
-
-    public Coin(JPanel parent, ArrayList<GameObject> lgo, int x, int y, String icon) {
+public class Vite extends PowerUp {
+    public Vite(JPanel parent, ArrayList<GameObject> lgo, int x, int y, String icon) {
         super(parent, lgo, x, y, icon);
-    }
-
-    @Override
-    public void specialAbility(Ball ball) {
-        ball.setMonete(ball.getMonete() + 1);
-
+        w = 40;
+        h = 80;
     }
 
     @Override
@@ -24,4 +19,8 @@ public class Coin extends PowerUp {
         return new Rectangle(x, y, w, h);
     }
 
+    @Override
+    public void specialAbility(Ball ball) {
+        ball.setVita(10);
+    }
 }

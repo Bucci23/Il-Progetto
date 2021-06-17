@@ -65,9 +65,9 @@ public class Ball extends Personaggio implements ActionListener {
     }
 
     @Override
-    public void coinCollect(Coin coin) {
-        monete++;
-        coin.setExisting(false);
+    public void powerUpCollect(PowerUp c) {
+        c.specialAbility(this);
+        c.setExisting(false);
 
     }
 
@@ -98,5 +98,21 @@ public class Ball extends Personaggio implements ActionListener {
             isHittingEnemy = false;
             hitDelay.stop();
         }
+    }
+
+    public int getMunizioni() {
+        return munizioni;
+    }
+
+    public void setMunizioni(int munizioni) {
+        this.munizioni = munizioni;
+    }
+
+    public int getMonete() {
+        return monete;
+    }
+
+    public void setMonete(int monete) {
+        this.monete = monete;
     }
 }

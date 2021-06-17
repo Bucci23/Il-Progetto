@@ -42,26 +42,32 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         lgo = new ArrayList<GameObject>();
         background = new ImageIcon("images/SfondoStrano.png");
         lgo.add(new Ball(this, lgo, 60, 60, getWidth(), getHeight(), 1, 1, Color.BLUE));
-        lgo.add(1, new Ground(this, lgo, 300, 400, 200, 600, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
-        lgo.add(2, new Ground(this, lgo, 600, 400, 1000, 300, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
-        lgo.add(3, new Ground(this, lgo, 600, 200, 1800, 500, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
-        lgo.add(4, new Ground(this, lgo, 300, 400, 2500, 200, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
-        lgo.add(5, new Ground(this, lgo, 300, 400, 3000, 100, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
-        lgo.add(6, new Ground(this, lgo, 300, 400, 200, 0, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
-        lgo.add(7, new Ground(this, lgo, 700, 50, 4000, 500, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
-        lgo.add(new Ground(this, lgo, 300, 100, 1200, 0, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
-        lgo.add(new Ground(this, lgo, 350, 150, 1500, -200, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
-        lgo.add(new Ground(this, lgo, 10000, 100, 0, 800, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
-        lgo.add(new NemicoLV1(this, lgo, 1100, 100, "images/dinoL.png", "images/dinoR.png"));
-        lgo.add(new NemicoLV1(this, lgo, 1500, 100, "images/dinoL.png", "images/dinoR.png"));
-        lgo.add(new NemicoLV1(this, lgo, 2000, 500, "images/dinoL.png", "images/dinoR.png"));
-        lgo.add(new NemicoLV1(this, lgo, 2500, 100, "images/dinoL.png", "images/dinoR.png"));
-        lgo.add(new NemicoLV1(this, lgo, 2800, 100, "images/dinoL.png", "images/dinoR.png"));
-        lgo.add(new NemicoLV1(this, lgo, 2900, 100, "images/dinoL.png", "images/dinoR.png"));
-        lgo.add(new NemicoLV1(this, lgo, 3000, 100, "images/dinoL.png", "images/dinoR.png"));
-        lgo.add(new Coin(this, lgo,700 , 750, "images/moneta.png"));
-        lgo.add(new Coin(this, lgo, 200, 100, "images/moneta.png"));
-        lgo.add(new Coin(this, lgo, 500, 400, "images/moneta.png"));
+        lgo.add(1, new Ground(this, lgo, 300, 400, 200, 1000, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
+        lgo.add(2, new Ground(this, lgo, 600, 400, 1000, 700, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
+        lgo.add(3, new Ground(this, lgo, 600, 200, 1800, 900, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
+        lgo.add(4, new Ground(this, lgo, 300, 400, 2500, 600, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
+        lgo.add(5, new Ground(this, lgo, 300, 400, 3000, 500, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
+        lgo.add(6, new Ground(this, lgo, 300, 400, 200, 400, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
+        lgo.add(7, new Ground(this, lgo, 700, 50, 4000, 900, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
+        lgo.add(new Ground(this, lgo, 300, 100, 1200, 400, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
+        lgo.add(new Ground(this, lgo, 350, 150, 1500, 200, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
+        lgo.add(new Ground(this, lgo, 10000, 100, 0, 1300, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
+        lgo.add(new NemicoLV1(this, lgo, 1100, 500, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new NemicoLV1(this, lgo, 1500, 500, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new NemicoLV1(this, lgo, 2000, 900, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new NemicoLV1(this, lgo, 2500, 500, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new NemicoLV1(this, lgo, 2800, 500, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new NemicoLV1(this, lgo, 2900, 500, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new NemicoLV1(this, lgo, 3000, 500, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new Coin(this, lgo,700 , 1050, "images/moneta.png"));
+        lgo.add(new Coin(this, lgo, 200, 500, "images/moneta.png"));
+        lgo.add(new Coin(this, lgo, 500, 900, "images/moneta.png"));
+        lgo.add(new Vite(this, lgo, 900, 1100, "images/Pozione.png"));
+        lgo.add(new Munizioni(this, lgo, 700, 1100, "images/Munizioni.png"));
+        lgo.add(new Vite(this, lgo, 500, 1100, "images/Pozione.png"));
+
+
+
 
 
         skills = new Skills((Ball) lgo.get(0), this);
@@ -149,7 +155,6 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         Ball b = (Ball) lgo.get(0);
         if (b.getSpeedY() + sceneSpeedY > 0) {
             sceneSpeedY = -b.getSpeedY();
-
         }
     }
 
@@ -197,12 +202,12 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         }
     }
 
-    void coinUpdate() {
+    void powerUpUpdate() {
         Iterator<GameObject> i = lgo.iterator();
         while (i.hasNext()) {
             GameObject g = i.next();
-            if (g instanceof Coin) {
-                Coin n = (Coin) g;
+            if (g instanceof PowerUp) {
+                PowerUp n = (PowerUp) g;
                 if (!n.existing) {
                     i.remove();
                 }
@@ -224,7 +229,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
             bUpdate();
             shootUpdate();
             enemyUpdate();
-            coinUpdate();
+            powerUpUpdate();
             repaint();
         }
     }

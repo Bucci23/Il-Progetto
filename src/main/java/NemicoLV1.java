@@ -61,7 +61,7 @@ public class NemicoLV1 extends Nemico {
     }
 
     @Override
-    public void coinCollect(Coin coin) {
+    public void powerUpCollect(PowerUp c) {
 
     }
 

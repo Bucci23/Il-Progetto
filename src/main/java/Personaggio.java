@@ -24,13 +24,13 @@ public abstract class Personaggio extends AbstractGameObject{
 
     public void goRight() {
         icon=r;
-        if (this.getSpeedX() < 15)
+        if (this.getSpeedX() < 10)
             this.setSpeedX(this.getSpeedX() + 2);
     }
 
     public void goLeft() {
         icon=l;
-        if (this.getSpeedX() > -15)
+        if (this.getSpeedX() > -10)
             this.setSpeedX(this.getSpeedX() - 2);
     }
 
@@ -72,21 +72,22 @@ public abstract class Personaggio extends AbstractGameObject{
                 if(go instanceof NemicoLV1){
                     enemyCollide((NemicoLV1) go);
                 }
-                if(go instanceof Coin){
-                    coinCollide((Coin) go);
+                if(go instanceof PowerUp){
+                    powerUpCollide((PowerUp) go);
                 }
+
 
             }
         }
     }
 
-    public void coinCollide(Coin c){
+    public void powerUpCollide(PowerUp c){
         if(this.getBounds().intersects(c.getBounds())){
-            coinCollect(c);
+            powerUpCollect(c);
         }
     }
 
-    public abstract void coinCollect(Coin coin);
+    public abstract void powerUpCollect(PowerUp c);
 
     private void cornerBounce(Ground g) {
         if(this.y<g.getY()){
@@ -137,4 +138,14 @@ public abstract class Personaggio extends AbstractGameObject{
         speedX = -speedX/2;
         this.x = x;
     }
+
+    public void setVita(int vita) {
+        this.vita = vita;
+    }
+
+    public int getVita() {
+        return vita;
+    }
+
+
 }
