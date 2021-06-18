@@ -46,42 +46,42 @@ public class Skills implements GameObject {
     }
 
     @Override
-    public int getX() {
+    public double getX() {
         return x;
     }
 
     @Override
-    public void setX(int x) {
+    public void setX(double x) {
 
     }
 
     @Override
-    public int getY() {
+    public double getY() {
         return y;
     }
 
     @Override
-    public void setY(int y) {
+    public void setY(double y) {
 
     }
 
     @Override
-    public int getSpeedX() {
+    public double getSpeedX() {
         return 0;
     }
 
     @Override
-    public void setSpeedX(int sx) {
+    public void setSpeedX(double sx) {
 
     }
 
     @Override
-    public int getSpeedY() {
+    public double getSpeedY() {
         return 0;
     }
 
     @Override
-    public void setSpeedY(int sy) {
+    public void setSpeedY(double sy) {
 
     }
 }

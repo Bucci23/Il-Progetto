@@ -3,9 +3,6 @@ import javax.swing.Timer;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.geom.Point2D;
-import java.awt.image.ImageObserver;
-import java.awt.image.ImageProducer;
 import java.util.*;
 
 public class Ball extends Personaggio implements ActionListener {
@@ -38,6 +35,7 @@ public class Ball extends Personaggio implements ActionListener {
         isHittingEnemy = false;
         hitDelay = new Timer(1000, this);
         monete = 0;
+        inWater = false;
     }
 
     void shoot() {
@@ -46,9 +44,9 @@ public class Ball extends Personaggio implements ActionListener {
             shootDelay.start();
             munizioni--;
             if (icon == r)
-                lgo.add(new Fuoco(parent, lgo, 30, "images/fuoco.png", "images/fuocoSpecchiato.png", x + w, y + h / 3));
+                lgo.add(new Fuoco(parent, lgo, 30, "images/fuoco.png", "images/fuocoSpecchiato.png", (int)(x + w), (int) (y + h / 3)));
             if (icon == l)
-                lgo.add(new Fuoco(parent, lgo, -30, "images/fuoco.png", "images/fuocoSpecchiato.png", x - w, y + h / 3));
+                lgo.add(new Fuoco(parent, lgo, -30, "images/fuoco.png", "images/fuocoSpecchiato.png", (int) x - w, (int) (y + h / 3)));
         }
     }
 
@@ -72,7 +70,7 @@ public class Ball extends Personaggio implements ActionListener {
     }
 
     @Override
-    public void enemyCollide(NemicoLV1 n) {
+    public void enemyCollide(Dinosauro n) {
         if (this.getBounds().intersects(n.getBounds())) {
             if (!isHittingEnemy) {
                 this.vita--;
@@ -85,7 +83,7 @@ public class Ball extends Personaggio implements ActionListener {
 
     @Override
     public void paint(Graphics g) {
-        icon.paintIcon(parent, g, x, y);
+        icon.paintIcon(parent, g,(int) x,(int) y);
     }
 
     @Override

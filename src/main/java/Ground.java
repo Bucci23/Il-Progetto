@@ -7,7 +7,7 @@ public class Ground extends AbstractGameObject {
     int nGrass;
     int nSimple;
 
-    public Ground(JPanel parent, ArrayList<GameObject> lgo, int w, int h, int x, int y, int speedX, int speedY, String pathG, String pathS) {
+    public Ground(JPanel parent, ArrayList<GameObject> lgo, int w, int h, int x, int y, double speedX, double speedY, String pathG, String pathS) {
         this.parent = parent;
         this.lgo = lgo;
         this.w = w;
@@ -34,18 +34,18 @@ public class Ground extends AbstractGameObject {
 
     @Override
     public void paint(Graphics g) {
-        for (int i = x; i < x + w; i += 50) {
-            icons[0].paintIcon(parent, g, i, y);
+        for (double i = x; i < x + w; i += 50) {
+            icons[0].paintIcon(parent, g,(int) i,(int) y);
         }
-        for (int i = x; i < x + w; i += 50) {
-            for (int j = y + 50; j < y + h; j += 50) {
-                icons[1].paintIcon(parent, g, i, j);
+        for (double i = x; i < x + w; i += 50) {
+            for (double j = y + 50; j < y + h; j += 50) {
+                icons[1].paintIcon(parent, g,(int) i,(int) j);
             }
         }
     }
 
     @Override
     public Rectangle getBounds() {
-        return new Rectangle(x, y, w, h);
+        return new Rectangle((int) x,(int) y, w, h);
     }
 }

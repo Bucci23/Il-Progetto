@@ -1,4 +1,3 @@
-import javax.management.timer.TimerNotification;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -25,8 +24,8 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
     boolean scrollingL = false;
     boolean scrollingU = false;
     boolean scrollingD = false;
-    int sceneSpeedX;
-    int sceneSpeedY;
+    double sceneSpeedX;
+    double sceneSpeedY;
     int ground;
     Skills skills;
 
@@ -52,13 +51,13 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         lgo.add(new Ground(this, lgo, 300, 100, 1200, 400, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
         lgo.add(new Ground(this, lgo, 350, 150, 1500, 200, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
         lgo.add(new Ground(this, lgo, 10000, 100, 0, 1300, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
-        lgo.add(new NemicoLV1(this, lgo, 1100, 500, "images/dinoL.png", "images/dinoR.png"));
-        lgo.add(new NemicoLV1(this, lgo, 1500, 500, "images/dinoL.png", "images/dinoR.png"));
-        lgo.add(new NemicoLV1(this, lgo, 2000, 900, "images/dinoL.png", "images/dinoR.png"));
-        lgo.add(new NemicoLV1(this, lgo, 2500, 500, "images/dinoL.png", "images/dinoR.png"));
-        lgo.add(new NemicoLV1(this, lgo, 2800, 500, "images/dinoL.png", "images/dinoR.png"));
-        lgo.add(new NemicoLV1(this, lgo, 2900, 500, "images/dinoL.png", "images/dinoR.png"));
-        lgo.add(new NemicoLV1(this, lgo, 3000, 500, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new Dinosauro(this, lgo, 1100, 500, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new Dinosauro(this, lgo, 1500, 500, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new Dinosauro(this, lgo, 2000, 900, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new Dinosauro(this, lgo, 2500, 500, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new Dinosauro(this, lgo, 2800, 500, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new Dinosauro(this, lgo, 2900, 500, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new Dinosauro(this, lgo, 3000, 500, "images/dinoL.png", "images/dinoR.png"));
         lgo.add(new Coin(this, lgo,700 , 1050, "images/moneta.png"));
         lgo.add(new Coin(this, lgo, 200, 500, "images/moneta.png"));
         lgo.add(new Coin(this, lgo, 500, 900, "images/moneta.png"));

@@ -2,7 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public abstract class Personaggio extends AbstractGameObject{
-    boolean onGround=false;
+    boolean onGround = false;
+    boolean inWater;
     int vita;
     ImageIcon icon;
     ImageIcon l;
@@ -11,11 +12,17 @@ public abstract class Personaggio extends AbstractGameObject{
     boolean isHittingEnemy;
     @Override
     public Rectangle getBounds() {
-        return new Rectangle(x, y, w, h);
+        return new Rectangle((int) x,(int) y, w, h);
     }
     public void gravity() {
-        if (!onGround)
-            speedY = speedY + 1;
+        if (!inWater){
+            if (!onGround)
+                speedY = speedY + 1;
+        }
+        else{
+            if (!onGround)
+                speedY = speedY + 0.5;
+        }
 
     }
     public void setJumping(boolean isJumping) {
@@ -69,8 +76,8 @@ public abstract class Personaggio extends AbstractGameObject{
             if (go != this) {
                 if (go instanceof Ground)
                     groundCollide((Ground) go);
-                if(go instanceof NemicoLV1){
-                    enemyCollide((NemicoLV1) go);
+                if(go instanceof Dinosauro){
+                    enemyCollide((Dinosauro) go);
                 }
                 if(go instanceof PowerUp){
                     powerUpCollide((PowerUp) go);
@@ -118,9 +125,9 @@ public abstract class Personaggio extends AbstractGameObject{
             }
         }
     }
-    public abstract void enemyCollide(NemicoLV1 n);
+    public abstract void enemyCollide(Dinosauro n);
 
-    public void floorBounce(int y) {
+    public void floorBounce(double y) {
         if (speedY > 0)
             speedY = -speedY / 2;
         speedX = speedX * 4 / 5;
@@ -129,12 +136,12 @@ public abstract class Personaggio extends AbstractGameObject{
         onGround = true;
     }
 
-    public void roofBounce(int y) {
+    public void roofBounce(double y) {
         speedY = -speedY / 2;
         this.y = y;
     }
 
-    public void wallBounce(int x) {
+    public void wallBounce(double x) {
         speedX = -speedX/2;
         this.x = x;
     }

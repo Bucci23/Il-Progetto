@@ -7,8 +7,8 @@ public abstract class AbstractGameObject implements GameObject {
     JPanel parent;
     ArrayList<GameObject> lgo;
     int w, h;
-    int x, y;
-    int speedX, speedY;
+    double x, y;
+    double speedX, speedY;
 
     public int getW() {
         return w;
@@ -26,35 +26,35 @@ public abstract class AbstractGameObject implements GameObject {
         this.h = h;
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
-    public void setX(int x) {
+    public void setX(double x) {
         this.x = x;
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 
-    public void setY(int y) {
+    public void setY(double y) {
         this.y = y;
     }
 
-    public int getSpeedX() {
+    public double getSpeedX() {
         return speedX;
     }
 
-    public void setSpeedX(int speedX) {
+    public void setSpeedX(double speedX) {
         this.speedX = speedX;
     }
 
-    public int getSpeedY() {
+    public double getSpeedY() {
         return speedY;
     }
 
-    public void setSpeedY(int speedY) {
+    public void setSpeedY(double speedY) {
         this.speedY = speedY;
     }
 
@@ -63,6 +63,4 @@ public abstract class AbstractGameObject implements GameObject {
         x = x += speedX + par.sceneSpeedX;
         y = y += speedY + par.sceneSpeedY;
     }
-
-
 }

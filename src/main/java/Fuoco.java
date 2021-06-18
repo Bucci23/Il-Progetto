@@ -38,7 +38,7 @@ public class Fuoco extends AbstractGameObject {
             this.icon = r;
         } else
             this.icon = l;
-        icon.paintIcon(parent, g, x, y);
+        icon.paintIcon(parent, g, (int)x,(int) y);
 
     }
     void isOnScreen(){
@@ -48,7 +48,7 @@ public class Fuoco extends AbstractGameObject {
     }
     public void isHitting() {
         for (GameObject go : lgo) {
-            if ((go != this && !(go instanceof Ball )) && (!(go instanceof  Coin))) {
+            if ((go != this && !(go instanceof Ball )) && (!(go instanceof  PowerUp))) {
                 if (this.getBounds().intersects(go.getBounds()))
                     setExisting(false);
             }
@@ -67,6 +67,6 @@ public class Fuoco extends AbstractGameObject {
 
     @Override
     public Rectangle getBounds() {
-        return new Rectangle(x, y, w, h);
+        return new Rectangle((int)x, (int)y, w, h);
     }
 }

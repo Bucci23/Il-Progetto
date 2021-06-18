@@ -16,7 +16,7 @@ public class Vite extends PowerUp {
 
     @Override
     public Rectangle getBounds() {
-        return new Rectangle(x, y, w, h);
+        return new Rectangle((int)x,(int) y, w, h);
     }
 
     @Override

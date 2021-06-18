@@ -19,7 +19,7 @@ public abstract class PowerUp extends AbstractGameObject {
 
     @Override
     public void paint(Graphics g) {
-        icon.paintIcon(parent, g, x, y);
+        icon.paintIcon(parent, g, (int)x,(int) y);
     }
 
 
