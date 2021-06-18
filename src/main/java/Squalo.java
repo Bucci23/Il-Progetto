@@ -1,20 +1,35 @@
 import javax.swing.*;
 import java.util.ArrayList;
 
-public class Squalo extends Nemico{
+public class Squalo extends Nemico {
 
     public Squalo(JPanel parent, ArrayList<GameObject> lgo, int x, int y, String r, String l) {
         super(parent, lgo, x, y, r, l);
-        this.w = 100;
-        this.h = 50;
+        this.w = 200;
+        this.h = 100;
         standardSpeedX = -8;
-        vita=3;
+        vita = 3;
         inWater = true;
     }
 
     @Override
     public void ballCollision() {
 
+    }
+
+    @Override
+    public void movimento() {
+        speedX = standardSpeedX;
+        int jmp = rnd.nextInt(100);
+        if (jmp <= 10) {
+            this.jump(false);
+        }
+        if (jmp == 11) {
+            standardSpeedX = -standardSpeedX;
+            if (icon == l) {
+                icon = r;
+            } else icon = l;
+        }
     }
 
     @Override
@@ -28,7 +43,7 @@ public class Squalo extends Nemico{
     }
 
     @Override
-    public void enemyCollide(Dinosauro n) {
+    public void enemyCollide(Nemico n) {
 
     }
 }

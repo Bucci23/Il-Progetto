@@ -37,7 +37,6 @@ public class Skills implements GameObject {
         coinIcon.paintIcon(parent, g,50, 130);
         g.drawString(": "+ mainBall.monete, 90, 160);
 
-
     }
 
     @Override

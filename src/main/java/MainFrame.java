@@ -10,7 +10,7 @@ public class MainFrame extends JFrame {
         super("Scratch!");
         BallPanel p1 = new BallPanel();
         JPanel p2 = new JPanel(new BorderLayout());
-        p1.init();
+        p1.init(1);
         add(BorderLayout.CENTER, p1);
         add(BorderLayout.PAGE_START, p2);
         setSize(1280, 720);

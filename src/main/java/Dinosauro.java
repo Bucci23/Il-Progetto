@@ -7,7 +7,7 @@ public class Dinosauro extends Nemico {
 
     public Dinosauro(JPanel parent, ArrayList<GameObject> lgo, int x, int y, String r, String l) {
         super(parent, lgo, x, y, r, l);
-        vita = 6;
+        vita = 3;
         this.w = 60;
         this.h = 100;
         standardSpeedX = -5;
@@ -27,7 +27,7 @@ public class Dinosauro extends Nemico {
     }
 
     @Override
-    public void enemyCollide(Dinosauro n) {
+    public void enemyCollide(Nemico n) {
     }
 
     @Override

@@ -2,16 +2,16 @@ Granchio.java
  Granchio
 Nemico.java
  Nemico
-AbstractGameObject.java
- AbstractGameObject
+InvisibleWall.java
+ InvisibleWall
 Personaggio.java
  Personaggio
 GameObject.java
  GameObject
 Ground.java
  Ground
-MainFrame.java
- MainFrame
+Dinosauro.java
+ Dinosauro
 Ball.java
  Ball
 Squalo.java
@@ -24,11 +24,13 @@ PowerUp.java
  PowerUp
 Vite.java
  Vite
-BallPanel.java
- BallPanel
-Dinosauro.java
- Dinosauro
-Coin.java
- Coin
 Munizioni.java
  Munizioni
+Coin.java
+ Coin
+BallPanel.java
+ BallPanel
+AbstractGameObject.java
+ AbstractGameObject
+MainFrame.java
+ MainFrame

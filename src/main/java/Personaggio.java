@@ -21,7 +21,7 @@ public abstract class Personaggio extends AbstractGameObject{
         }
         else{
             if (!onGround)
-                speedY = speedY + 0.5;
+                speedY = speedY + 0.3;
         }
 
     }
@@ -43,8 +43,13 @@ public abstract class Personaggio extends AbstractGameObject{
 
     public void jump(boolean enemy) {
         if (!this.isJumping || enemy) {
-            this.setSpeedY(-25);
-            this.setJumping(true);
+            if(!inWater) {
+                this.setSpeedY(-25);
+                this.setJumping(true);
+            }
+            else{
+                this.setSpeedY(-10);
+            }
         }
     }
 
@@ -76,8 +81,8 @@ public abstract class Personaggio extends AbstractGameObject{
             if (go != this) {
                 if (go instanceof Ground)
                     groundCollide((Ground) go);
-                if(go instanceof Dinosauro){
-                    enemyCollide((Dinosauro) go);
+                if(go instanceof Nemico){
+                    enemyCollide((Nemico) go);
                 }
                 if(go instanceof PowerUp){
                     powerUpCollide((PowerUp) go);
@@ -125,7 +130,7 @@ public abstract class Personaggio extends AbstractGameObject{
             }
         }
     }
-    public abstract void enemyCollide(Dinosauro n);
+    public abstract void enemyCollide(Nemico n);
 
     public void floorBounce(double y) {
         if (speedY > 0)

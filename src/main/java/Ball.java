@@ -70,7 +70,7 @@ public class Ball extends Personaggio implements ActionListener {
     }
 
     @Override
-    public void enemyCollide(Dinosauro n) {
+    public void enemyCollide(Nemico n) {
         if (this.getBounds().intersects(n.getBounds())) {
             if (!isHittingEnemy) {
                 this.vita--;
