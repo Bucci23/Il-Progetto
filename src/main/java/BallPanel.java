@@ -222,7 +222,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
 
     public void paintBackground(Graphics g) {
         int count = 0;
-        for (int i = -500; i < 10000; i += background.getIconWidth()) {
+        for (int i = bX - background.getIconWidth(); i < 10000+bX; i += background.getIconWidth()) {
             count++;
             if (count % 2 == 0) {
                 background.paintIcon(this, g, i+getX(), bY);
@@ -292,7 +292,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         lgo.add(new Vite(this, lgo, 500, 1100, "images/Pozione.png"));
         lgo.add(new Ground(this, lgo, 200, 3000, 10000, 1300, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
         lgo.add(new Ground(this, lgo, 3000, 200, 10000, 4000, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
-        lgo.add(new Squalo(this, lgo, 3000, 500, "images/SqualoGrandeL.png", "images/SqualoGrandeR.png"));
+        lgo.add(new Squalo(this, lgo, 3000, 500, "images/SqualoGrandeR.png", "images/SqualoGrandeL.png"));
         lgo.add(new Granchio(this, lgo, 600, 500, "images/GranchioL.png", "images/GranchioR.png"));
         lgo.add( new Ground(this, lgo, 100, 10000, -100, 0, 0, 0, null, null));
         lgo.add( new Ground(this, lgo, 100, 10000, 10000, 0, 0, 0, null, null));
@@ -331,6 +331,5 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         lgo.add(new Squalo(this, lgo, 3000, 500, "images/SqualoGrandeL.png", "images/SqualoGrandeR.png"));
         lgo.add(new Granchio(this, lgo, 600, 500, "images/GranchioL.png", "images/GranchioR.png"));
     }
-
 
 }

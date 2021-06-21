@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="958a0c82-2e9f-431c-bb90-7b1e26aacc6f" name="Default Changelist" comment="Tante cose" />
+    <list default="true" id="958a0c82-2e9f-431c-bb90-7b1e26aacc6f" name="Default Changelist" comment="Tante cose">
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Munizioni.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Munizioni.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/SqualoGrandeR.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/SqualoGrandeR.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BallPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BallPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Ground.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ground.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -247,7 +254,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624023423432</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Tante cose">
+      <created>1624023554459</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1624023554459</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
