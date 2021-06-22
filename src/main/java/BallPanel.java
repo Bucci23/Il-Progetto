@@ -13,7 +13,7 @@ import java.util.Random;
 public class BallPanel extends JPanel implements KeyListener, ActionListener {
     @Serial
     private static final long serialVersionUID = 1L;
-    JFrame parent;
+    MainFrame parent;
     Timer timer;
     ArrayList<GameObject> lgo;
     int bX;
@@ -23,6 +23,8 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
     ImageIcon backgroundS;
     ImageIcon gameOverImage;
     ImageIcon gameOverRetry;
+    ImageIcon pauseImage;
+    ImageIcon pauseResume;
     boolean scrollingR;
     boolean scrollingL;
     boolean scrollingU;
@@ -36,6 +38,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
     int livello;
     boolean pause;
     Timer GOTimer;
+    Timer PTimer;
 
     public BallPanel() {
         rnd = new Random();
@@ -51,13 +54,24 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
 
     }
 
-    public void init(int livello) {
+    public void init(int livello, boolean language, MainFrame parent) {
         lgo = new ArrayList<GameObject>();
+        this.parent = parent;
         addKeyListener(this);
         if (livello == 1)
             initLV1();
-        gameOverImage = new ImageIcon("images/gameOver.png");
-        gameOverRetry = new ImageIcon("images/gameOverRetry.png");
+        if(!language) {
+            gameOverImage = new ImageIcon("images/gameOver.png");
+            gameOverRetry = new ImageIcon("images/gameOverRetry.png");
+            pauseImage = new ImageIcon("images/pause.png");
+            pauseResume = new ImageIcon("images/pauseResume.png");
+        }
+        else{
+            gameOverImage = new ImageIcon("images/gameOver.png");
+            gameOverRetry = new ImageIcon("images/gameOverRetryITA.png");
+            pauseImage = new ImageIcon("images/pauseITA.png");
+            pauseResume = new ImageIcon("images/pauseResumeITA.png");
+        }
         skills = new Skills((Ball) lgo.get(0), this);
         bX = -500;
         bY = -150;
@@ -66,6 +80,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
 
         timer = new Timer(20, this);
         GOTimer = new Timer(700, this);
+        PTimer = new Timer(700, this);
         timer.start();
         pause = false;
 
@@ -226,6 +241,10 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
             animation = !animation;
             repaint();
         }
+        if(e.getSource() == PTimer){
+            animation = !animation;
+            repaint();
+        }
 
     }
 
@@ -236,7 +255,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         super.paintComponent(g);
             paintBackground(g);
             for (GameObject go : lgo) {
-                if(!gameOver)
+                if(!pause)
                     go.update();
                 go.paint(g);
             }
@@ -258,10 +277,13 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
     public void paintPause(Graphics g){
         if(pause){
             timer.stop();
+            PTimer.start();
             if(!gameOver) {
-                g.setFont(new Font("Arial", Font.BOLD, 300));
-                g.drawString("| |", this.getWidth() / 2 - 100, this.getHeight() / 2);
-
+                if(animation){
+                    pauseImage.paintIcon(this,g,0,0);
+                }else{
+                    pauseResume.paintIcon(this,g, 0, 0);
+                }
             } else{
                 paintGameOver(g);
             }
@@ -306,14 +328,21 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         if (e.getKeyChar() == 'f' || e.getKeyChar() == 'F') {
             mainBall.shoot();
         }
-        if (e.getKeyChar() == 27 || e.getKeyChar() == 27) {
+        if (e.getKeyChar() == 27) {
             if (!pause) {
                 pause = true;
             } else {
                 pause = false;
+                PTimer.stop();
                 timer.start();
             }
 
+        }
+        if(e.getKeyChar() == '\n'){
+            if(gameOver){
+                parent.remove(this);
+                parent.gameMenu();
+            }
         }
 
     }

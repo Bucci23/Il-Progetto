@@ -24,7 +24,6 @@ public class MainFrame extends JFrame implements ActionListener {
 
     public MainFrame() {
         super("Scratch!");
-        this.
         gameMenu();
         setSize(1280, 720);
         setResizable(false);
@@ -32,7 +31,7 @@ public class MainFrame extends JFrame implements ActionListener {
         setVisible(true);
         setFocusable(true);
         audio = true;
-        language = true;
+        language = false;
 
     }
 
@@ -123,7 +122,7 @@ public class MainFrame extends JFrame implements ActionListener {
             remove(GameMenu);
             p1 = new BallPanel();
             add(BorderLayout.CENTER, p1);
-            p1.init(1);
+            p1.init(1, language, this);
             setContentPane(p1);
             addKeyListener(p1);
             setVisible(true);
