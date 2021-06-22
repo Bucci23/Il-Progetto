@@ -38,21 +38,21 @@ public class MainFrame extends JFrame implements ActionListener {
     public void gameMenu() {
         GameMenu = new JPanel();
         if (!language) {
-            newGame = new JButton("New Game");
-            next = new JButton("Continue");
-            quit = new JButton("Quit Game");
-            options = new JButton("Settings");
+            newGame = new JButton("NEW GAME");
+            next = new JButton("CONTINUE");
+            quit = new JButton("QUIT GAME");
+            options = new JButton("SETTINGS");
         } else {
-            newGame = new JButton("Nuova Partita");
-            next = new JButton("Continua");
-            quit = new JButton("Esci dal gioco");
-            options = new JButton("Impostazioni");
+            newGame = new JButton("NUOVA PARTITA");
+            next = new JButton("CONTINUA");
+            quit = new JButton("ESCI DAL GIOCO");
+            options = new JButton("IMPOSTAZIONI");
         }
 
-        newGame.setFont(new Font("Arial", Font.ITALIC, 50));
-        next.setFont(new Font("Arial", Font.ITALIC, 50));
-        quit.setFont(new Font("Arial", Font.ITALIC, 50));
-        options.setFont(new Font("Arial", Font.ITALIC, 50));
+        newGame.setFont(new Font("Mario Kart DS", Font.PLAIN, 50));
+        next.setFont(new Font("Mario Kart DS", Font.PLAIN, 50));
+        quit.setFont(new Font("Mario Kart DS", Font.PLAIN, 50));
+        options.setFont(new Font("Mario Kart DS", Font.PLAIN, 50));
         GameMenu.add(BorderLayout.PAGE_START, newGame);
         newGame.addActionListener(this);
         GameMenu.add(BorderLayout.CENTER, next);
@@ -87,13 +87,13 @@ public class MainFrame extends JFrame implements ActionListener {
             back = new JButton("MENU INIZIALE");
 
         }
-        audioLabel.setFont(new Font("Arial", Font.ITALIC, 50));
-        languageLabel.setFont(new Font("Arial", Font.ITALIC, 50));
-        audY.setFont(new Font("Arial", Font.ITALIC, 50));
-        audN.setFont(new Font("Arial", Font.ITALIC, 50));
-        lanENG.setFont(new Font("Arial", Font.ITALIC, 50));
-        lanITA.setFont(new Font("Arial", Font.ITALIC, 50));
-        back.setFont(new Font("Arial", Font.ITALIC, 50));
+        audioLabel.setFont(new Font("Mario Kart DS", Font.PLAIN, 50));
+        languageLabel.setFont(new Font("Mario Kart DS", Font.PLAIN, 50));
+        audY.setFont(new Font("Mario Kart DS", Font.PLAIN, 50));
+        audN.setFont(new Font("Mario Kart DS", Font.PLAIN, 50));
+        lanENG.setFont(new Font("Mario Kart DS", Font.PLAIN, 50));
+        lanITA.setFont(new Font("Mario Kart DS", Font.PLAIN, 50));
+        back.setFont(new Font("Mario Kart DS", Font.PLAIN, 50));
 
         settingPanel.add(audioLabel);
         settingPanel.add(audN);

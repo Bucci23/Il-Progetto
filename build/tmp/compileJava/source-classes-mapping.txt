@@ -28,9 +28,9 @@ Fuoco.java
  Fuoco
 Ball.java
  Ball
-BallPanel.java
- BallPanel
 AbstractGameObject.java
  AbstractGameObject
+BallPanel.java
+ BallPanel
 MainFrame.java
  MainFrame
