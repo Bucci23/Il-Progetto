@@ -21,22 +21,34 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
     Random rnd;
     ImageIcon background;
     ImageIcon backgroundS;
-    boolean scrollingR = false;
-    boolean scrollingL = false;
-    boolean scrollingU = false;
-    boolean scrollingD = false;
+    ImageIcon gameOverImage;
+    ImageIcon gameOverRetry;
+    boolean scrollingR;
+    boolean scrollingL;
+    boolean scrollingU;
+    boolean scrollingD;
+    boolean gameOver;
+    boolean animation;
     double sceneSpeedX;
     double sceneSpeedY;
     int ground;
     Skills skills;
     int livello;
     boolean pause;
+    Timer GOTimer;
 
     public BallPanel() {
         rnd = new Random();
         setBackground(Color.CYAN);
         addKeyListener(this);
         setFocusable(true);
+        scrollingR = false;
+        scrollingL = false;
+        scrollingU = false;
+        scrollingD = false;
+        gameOver = false;
+        animation = false;
+
     }
 
     public void init(int livello) {
@@ -44,7 +56,8 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         addKeyListener(this);
         if (livello == 1)
             initLV1();
-
+        gameOverImage = new ImageIcon("images/gameOver.png");
+        gameOverRetry = new ImageIcon("images/gameOverRetry.png");
         skills = new Skills((Ball) lgo.get(0), this);
         bX = -500;
         bY = -150;
@@ -52,6 +65,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         sceneSpeedY = 0;
 
         timer = new Timer(20, this);
+        GOTimer = new Timer(700, this);
         timer.start();
         pause = false;
 
@@ -205,6 +219,11 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
             shootUpdate();
             enemyUpdate();
             powerUpUpdate();
+            checkDeath();
+            repaint();
+        }
+        if(e.getSource() == GOTimer){
+            animation = !animation;
             repaint();
         }
 
@@ -215,13 +234,14 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
     public void paintComponent(Graphics g) {
 
         super.paintComponent(g);
-        paintBackground(g);
-        for (GameObject go : lgo) {
-            go.update();
-            go.paint(g);
-        }
-        skills.update();
-        skills.paint(g);
+            paintBackground(g);
+            for (GameObject go : lgo) {
+                if(!gameOver)
+                    go.update();
+                go.paint(g);
+            }
+            skills.update();
+            skills.paint(g);
         paintPause(g);
     }
 
@@ -237,9 +257,29 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
     }
     public void paintPause(Graphics g){
         if(pause){
-            g.setFont(new Font("Arial", Font.BOLD, 300));
-            g.drawString("| |", this.getWidth()/2 - 100, this.getHeight()/2);
             timer.stop();
+            if(!gameOver) {
+                g.setFont(new Font("Arial", Font.BOLD, 300));
+                g.drawString("| |", this.getWidth() / 2 - 100, this.getHeight() / 2);
+
+            } else{
+                paintGameOver(g);
+            }
+        }
+    }
+    void paintGameOver(Graphics g){
+        if(animation){
+            gameOverImage.paintIcon(this,g,0,0);
+        } else{
+            gameOverRetry.paintIcon(this, g, 0, 0);
+        }
+    }
+    void checkDeath(){
+        Ball mainBall = (Ball) lgo.get(0);
+        if (mainBall.getVita() <= 0){
+            gameOver = true;
+            pause = true;
+            GOTimer.start();
         }
     }
 

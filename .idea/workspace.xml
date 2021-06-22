@@ -14,19 +14,7 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/BallPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/BallPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Ground.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Ground.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/MainFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AbstractGameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AbstractGameObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BallPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BallPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dinosauro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dinosauro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Fuoco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Fuoco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Granchio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Granchio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Ground.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ground.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Munizioni.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Munizioni.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Nemico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Nemico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Skills.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Skills.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624283642744</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Munizioni nuove">
+      <created>1624349982790</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1624349982790</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
