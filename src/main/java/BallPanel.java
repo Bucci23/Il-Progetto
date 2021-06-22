@@ -242,8 +242,10 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
             repaint();
         }
         if(e.getSource() == PTimer){
-            animation = !animation;
-            repaint();
+            if(!gameOver) {
+                animation = !animation;
+                repaint();
+            }
         }
 
     }
@@ -329,12 +331,14 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
             mainBall.shoot();
         }
         if (e.getKeyChar() == 27) {
-            if (!pause) {
-                pause = true;
-            } else {
-                pause = false;
-                PTimer.stop();
-                timer.start();
+            if(!gameOver) {
+                if (!pause) {
+                    pause = true;
+                } else {
+                    pause = false;
+                    PTimer.stop();
+                    timer.start();
+                }
             }
 
         }
