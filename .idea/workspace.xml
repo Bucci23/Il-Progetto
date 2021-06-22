@@ -4,13 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="958a0c82-2e9f-431c-bb90-7b1e26aacc6f" name="Default Changelist" comment="Tante cose">
+    <list default="true" id="958a0c82-2e9f-431c-bb90-7b1e26aacc6f" name="Default Changelist" comment="Munizioni nuove">
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/Munizioni.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Munizioni.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/SqualoGrandeR.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/SqualoGrandeR.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/BallPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/BallPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Ground.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Ground.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/MainFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AbstractGameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AbstractGameObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BallPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BallPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Dinosauro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dinosauro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Fuoco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Fuoco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Granchio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Granchio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Ground.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ground.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Munizioni.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Munizioni.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Nemico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Nemico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Skills.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Skills.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624023554459</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Munizioni nuove">
+      <created>1624283642744</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1624283642744</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -287,6 +310,7 @@
     <MESSAGE value="dimensioni" />
     <MESSAGE value="Munizioni e pozione" />
     <MESSAGE value="Tante cose" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tante cose" />
+    <MESSAGE value="Munizioni nuove" />
+    <option name="LAST_COMMIT_MESSAGE" value="Munizioni nuove" />
   </component>
 </project>

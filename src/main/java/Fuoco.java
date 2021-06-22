@@ -38,17 +38,19 @@ public class Fuoco extends AbstractGameObject {
             this.icon = r;
         } else
             this.icon = l;
-        icon.paintIcon(parent, g, (int)x,(int) y);
+        icon.paintIcon(parent, g, (int) x, (int) y);
 
     }
-    void isOnScreen(){
-        if(this.x > parent.getWidth() || this.x < 0){
+
+    void isOnScreen() {
+        if (this.x > parent.getWidth() || this.x < 0) {
             this.setExisting(false);
         }
     }
+
     public void isHitting() {
         for (GameObject go : lgo) {
-            if ((go != this && !(go instanceof Ball )) && (!(go instanceof  PowerUp))) {
+            if ((go != this && !(go instanceof Ball)) && ((!(go instanceof PowerUp) && (!(go instanceof Nemico))))) {
                 if (this.getBounds().intersects(go.getBounds()))
                     setExisting(false);
             }
@@ -59,14 +61,9 @@ public class Fuoco extends AbstractGameObject {
         this.existing = existing;
     }
 
-    public void existenceUpdate() {
-        if (!existing) {
-            lgo.remove(this);
-        }
-    }
 
     @Override
     public Rectangle getBounds() {
-        return new Rectangle((int)x, (int)y, w, h);
+        return new Rectangle((int) x, (int) y, w, h);
     }
 }

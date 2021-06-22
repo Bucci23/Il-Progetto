@@ -35,17 +35,17 @@ public class Ground extends AbstractGameObject {
     @Override
     public void paint(Graphics g) {
         for (double i = x; i < x + w - 1; i += 50) {
-            icons[0].paintIcon(parent, g,(int) i,(int) y);
+            icons[0].paintIcon(parent, g, (int) i, (int) y);
         }
         for (double i = x; i < x + w - 1; i += 50) {
             for (double j = y + 50; j < y + h; j += 50) {
-                icons[1].paintIcon(parent, g,(int) i,(int) j);
+                icons[1].paintIcon(parent, g, (int) i, (int) j);
             }
         }
     }
 
     @Override
     public Rectangle getBounds() {
-        return new Rectangle((int) x,(int) y, w, h);
+        return new Rectangle((int) x, (int) y, w, h);
     }
 }

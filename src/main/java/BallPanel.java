@@ -30,6 +30,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
     int ground;
     Skills skills;
     int livello;
+    boolean pause;
 
     public BallPanel() {
         rnd = new Random();
@@ -40,6 +41,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
 
     public void init(int livello) {
         lgo = new ArrayList<GameObject>();
+        addKeyListener(this);
         if (livello == 1)
             initLV1();
 
@@ -51,6 +53,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
 
         timer = new Timer(20, this);
         timer.start();
+        pause = false;
 
     }
 
@@ -133,7 +136,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
     public void lowerBound() {
         Ball b = (Ball) lgo.get(0);
         groundUpdate();
-        if ((b.getY() > this.getHeight() - 300 && b.speedY > 0) && ground < this.getHeight()) {
+        if ((b.getY() > this.getHeight() - 100 && b.speedY > 0) && ground < this.getHeight()) {
             scrollingD = true;
             moveSceneDown();
         } else if (b.getY() + b.getH() < this.getHeight() - 300 - b.getH() || b.getSpeedY() < 0 || ground >= this.getHeight())
@@ -204,6 +207,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
             powerUpUpdate();
             repaint();
         }
+
     }
 
 
@@ -218,16 +222,24 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         }
         skills.update();
         skills.paint(g);
+        paintPause(g);
     }
 
     public void paintBackground(Graphics g) {
         int count = 0;
-        for (int i = bX - background.getIconWidth(); i < 10000+bX; i += background.getIconWidth()) {
+        for (int i = bX - background.getIconWidth(); i < 10000 + bX; i += background.getIconWidth()) {
             count++;
             if (count % 2 == 0) {
-                background.paintIcon(this, g, i+getX(), bY);
+                background.paintIcon(this, g, i + getX(), bY);
             } else
-                backgroundS.paintIcon(this, g, i+getX(), bY);
+                backgroundS.paintIcon(this, g, i + getX(), bY);
+        }
+    }
+    public void paintPause(Graphics g){
+        if(pause){
+            g.setFont(new Font("Arial", Font.BOLD, 300));
+            g.drawString("| |", this.getWidth()/2 - 100, this.getHeight()/2);
+            timer.stop();
         }
     }
 
@@ -254,6 +266,16 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         if (e.getKeyChar() == 'f' || e.getKeyChar() == 'F') {
             mainBall.shoot();
         }
+        if (e.getKeyChar() == 27 || e.getKeyChar() == 27) {
+            if (!pause) {
+                pause = true;
+            } else {
+                pause = false;
+                timer.start();
+            }
+
+        }
+
     }
 
     @Override
@@ -292,10 +314,8 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         lgo.add(new Vite(this, lgo, 500, 1100, "images/Pozione.png"));
         lgo.add(new Ground(this, lgo, 200, 3000, 10000, 1300, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
         lgo.add(new Ground(this, lgo, 3000, 200, 10000, 4000, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
-        lgo.add(new Squalo(this, lgo, 3000, 500, "images/SqualoGrandeR.png", "images/SqualoGrandeL.png"));
-        lgo.add(new Granchio(this, lgo, 600, 500, "images/GranchioL.png", "images/GranchioR.png"));
-        lgo.add( new Ground(this, lgo, 100, 10000, -100, 0, 0, 0, null, null));
-        lgo.add( new Ground(this, lgo, 100, 10000, 10000, 0, 0, 0, null, null));
+        lgo.add(new Ground(this, lgo, 100, 10000, -100, 0, 0, 0, null, null));
+        lgo.add(new Ground(this, lgo, 100, 10000, 10000, 0, 0, 0, null, null));
 
 
     }

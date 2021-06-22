@@ -1,7 +1,5 @@
 import javax.swing.*;
-import java.awt.*;
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Dinosauro extends Nemico {
 
@@ -13,7 +11,6 @@ public class Dinosauro extends Nemico {
         standardSpeedX = -5;
 
     }
-
 
 
     @Override

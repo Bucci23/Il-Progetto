@@ -1,7 +1,5 @@
 import javax.swing.*;
-import java.awt.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public abstract class AbstractGameObject implements GameObject {
     JPanel parent;
@@ -59,8 +57,8 @@ public abstract class AbstractGameObject implements GameObject {
     }
 
     public void newPositions() {
-        BallPanel par=(BallPanel) parent;
-        x = x += speedX + par.sceneSpeedX;
-        y = y += speedY + par.sceneSpeedY;
+        BallPanel par = (BallPanel) parent;
+        x += speedX + par.sceneSpeedX;
+        y += speedY + par.sceneSpeedY;
     }
 }

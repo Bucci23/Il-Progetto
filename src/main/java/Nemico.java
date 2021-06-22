@@ -63,10 +63,12 @@ public abstract class Nemico extends Personaggio {
         for (GameObject go : lgo) {
             if (go != this) {
                 if (go instanceof Fuoco) {
-                    if (((Fuoco) go).getBounds().intersects(this.getBounds())) {
+                    if (go.getBounds().intersects(this.getBounds())) {
                         vita -= 3;
+                        ((Fuoco) go).setExisting(false);
                         if (vita == 0)
                             setExisting(false);
+
                     }
                 }
             }

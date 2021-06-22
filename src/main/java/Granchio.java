@@ -1,11 +1,10 @@
 import javax.swing.*;
-import java.awt.*;
 import java.util.ArrayList;
 
-public class Granchio extends Nemico{
+public class Granchio extends Nemico {
 
-    public Granchio(JPanel parent, ArrayList<GameObject> lgo, int x, int y, String r, String l){
-        super( parent, lgo,  x,  y,  r,  l);
+    public Granchio(JPanel parent, ArrayList<GameObject> lgo, int x, int y, String r, String l) {
+        super(parent, lgo, x, y, r, l);
         vita = 6;
         this.w = 60;
         this.h = 50;
