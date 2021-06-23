@@ -75,7 +75,6 @@ public class Salvadanaio extends AbstractGameObject {
 
     public void isColliding(Ball ball) {
         if (this.getBounds().intersects(ball.getBounds())) {
-            System.out.println("Sono qui");
             if (ball.monete >= moneteRichieste) {
                 lvSuperato = true;
                 ballPanel.lvSuperato = true;
@@ -92,7 +91,6 @@ public class Salvadanaio extends AbstractGameObject {
     }
 
     public void saveGame(){
-        System.out.println("SALVATAGGIO IN CORSO " + livello + 1);
         save.save(livello + 1);
     }
 }

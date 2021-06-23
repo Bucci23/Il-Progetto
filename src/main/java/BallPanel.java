@@ -75,12 +75,14 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
             gameOverRetry = new ImageIcon("images/gameOverRetry.png");
             pauseImage = new ImageIcon("images/pause.png");
             pauseResume = new ImageIcon("images/pauseResume.png");
+            lvSuperatoIMG = new ImageIcon("images/VignettaLVSuperatoENG.png");
         }
         else{
             gameOverImage = new ImageIcon("images/gameOver.png");
             gameOverRetry = new ImageIcon("images/gameOverRetryITA.png");
             pauseImage = new ImageIcon("images/pauseITA.png");
             pauseResume = new ImageIcon("images/pauseResumeITA.png");
+            lvSuperatoIMG = new ImageIcon("images/VignettaLVSuperatoITA.png");
         }
         skills = new Skills((Ball) lgo.get(0), this);
         bX = -500;
@@ -91,7 +93,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         timer = new Timer(20, this);
         GOTimer = new Timer(700, this);
         PTimer = new Timer(700, this);
-        LTimer = new Timer(5000, this);
+        LTimer = new Timer(3000, this);
 
         timer.start();
         pause = false;
@@ -306,7 +308,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
             } else if(gameOver){
                 paintGameOver(g);
             } else {
-                //lvSuperatoIMG.paintIcon(this, g, 0, 0);
+                lvSuperatoIMG.paintIcon(this, g, getWidth()/2 + 150, getHeight()/2 -100);
             }
         }
     }
@@ -386,6 +388,10 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         backgroundS = new ImageIcon("images/desertoS.jpg");
 
         lgo.add(new Ball(this, lgo, 60, 60, getWidth(), getHeight(), 1, 1, Color.BLUE));
+        if(language)
+            lgo.add(new Salvadanaio(this, 9800, 1100, 1, "images/vignettaITA.png","images/vignettaLVSuperatoITA.png" ));
+        else
+            lgo.add(new Salvadanaio(this, 9800, 1100, 1, "images/vignettaENG.png", "images/vignettaLVSuperatoENG.png"));
         lgo.add(1, new Ground(this, lgo, 300, 400, 200, 1000, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
         lgo.add(2, new Ground(this, lgo, 600, 400, 1000, 700, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
         lgo.add(3, new Ground(this, lgo, 600, 200, 1800, 900, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
@@ -413,10 +419,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         lgo.add(new Ground(this, lgo, 3000, 200, 10000, 4000, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
         lgo.add(new Ground(this, lgo, 100, 10000, -100, 0, 0, 0, null, null));
         lgo.add(new Ground(this, lgo, 100, 10000, 10000, 0, 0, 0, null, null));
-        if(language)
-            lgo.add(new Salvadanaio(this, 5000, 1100, 1, "images/vignettaITA.png","images/vignettaLVSuperatoITA.png" ));
-        else
-            lgo.add(new Salvadanaio(this, 5000, 1100, 1, "images/vignettaITA.png", "images/vignettaLVSuperatoENG.png"));
+
 
 
     }

@@ -90,6 +90,7 @@ public abstract class Personaggio extends AbstractGameObject {
                 }
                 if (go instanceof Salvadanaio && this instanceof Ball) {
                     ((Salvadanaio) go).isColliding((Ball) this);
+
                 }
 
 

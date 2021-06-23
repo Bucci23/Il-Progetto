@@ -6,16 +6,16 @@ InvisibleWall.java
  InvisibleWall
 Fuoco.java
  Fuoco
-Personaggio.java
- Personaggio
+DataBase.java
+ DataBase
 Granchio.java
  Granchio
 Nemico.java
  Nemico
 Dinosauro.java
  Dinosauro
-Munizioni.java
- Munizioni
+Personaggio.java
+ Personaggio
 Coin.java
  Coin
 Ball.java
@@ -28,8 +28,8 @@ PowerUp.java
  PowerUp
 Vite.java
  Vite
-DataBase.java
- DataBase
+Munizioni.java
+ Munizioni
 BallPanel.java
  BallPanel
 AbstractGameObject.java
