@@ -34,6 +34,8 @@ BallPanel.java
  BallPanel
 AbstractGameObject.java
  AbstractGameObject
+Guida.java
+ Guida
 Salvadanaio.java
  Salvadanaio
 MainFrame.java

@@ -1,21 +1,19 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
 import java.io.Serial;
 import java.util.ArrayList;
 
 import java.util.Iterator;
 import java.util.Random;
 
-public class BallPanel extends JPanel implements KeyListener, ActionListener {
+public class BallPanel extends JPanel implements KeyListener, ActionListener, MouseListener {
     @Serial
     private static final long serialVersionUID = 1L;
     MainFrame parent;
     Timer timer;
     ArrayList<GameObject> lgo;
+    Guida guida;
     int bX;
     int bY;
     Random rnd;
@@ -48,6 +46,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         rnd = new Random();
         setBackground(Color.CYAN);
         addKeyListener(this);
+        addMouseListener(this);
         setFocusable(true);
         scrollingR = false;
         scrollingL = false;
@@ -94,7 +93,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         GOTimer = new Timer(700, this);
         PTimer = new Timer(700, this);
         LTimer = new Timer(3000, this);
-
+        guida = new Guida(this,"images/guida.png", "images/showGuide.png", "images/guidaX.png");
         timer.start();
         pause = false;
 
@@ -281,6 +280,9 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
             }
             skills.update();
             skills.paint(g);
+            guida.update();
+            guida.paint(g);
+
         paintPause(g);
     }
 
@@ -299,15 +301,15 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         if(pause){
             timer.stop();
             PTimer.start();
-            if(!gameOver && !lvSuperato) {
+            if(!gameOver && !lvSuperato && !guida.showing) {
                 if(animation){
                     pauseImage.paintIcon(this,g,0,0);
                 }else{
                     pauseResume.paintIcon(this,g, 0, 0);
                 }
-            } else if(gameOver){
+            } else if(gameOver && !guida.showing){
                 paintGameOver(g);
-            } else {
+            } else if (!guida.showing){
                 lvSuperatoIMG.paintIcon(this, g, getWidth()/2 + 150, getHeight()/2 -100);
             }
         }
@@ -458,4 +460,39 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         lgo.add(new Granchio(this, lgo, 600, 500, "images/GranchioL.png", "images/GranchioR.png"));
     }
 
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        if(e.getX() >= getWidth() - 100 && e.getY() <= 100){
+
+            if(!guida.showing) {
+                guida.showing = true;
+                pause = true;
+            }
+            else{
+                pause = false;
+                guida.showing = false;
+                timer.start();
+            }
+        }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
 }
