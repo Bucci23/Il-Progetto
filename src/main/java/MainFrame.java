@@ -19,6 +19,8 @@ public class MainFrame extends JFrame implements ActionListener {
     JLabel languageLabel;
     JPanel GameMenu;
     JPanel settingPanel;
+    DataBase b;
+    int livello;
     boolean audio;
     boolean language;
 
@@ -53,14 +55,14 @@ public class MainFrame extends JFrame implements ActionListener {
         next.setFont(new Font("Mario Kart DS", Font.PLAIN, 50));
         quit.setFont(new Font("Mario Kart DS", Font.PLAIN, 50));
         options.setFont(new Font("Mario Kart DS", Font.PLAIN, 50));
-        GameMenu.add(BorderLayout.PAGE_START, newGame);
+        GameMenu.add(newGame);
         newGame.addActionListener(this);
-        GameMenu.add(BorderLayout.CENTER, next);
+        GameMenu.add(next);
         next.addActionListener(this);
-        GameMenu.add(BorderLayout.LINE_END, options);
-        GameMenu.add(BorderLayout.PAGE_END, quit);
+        GameMenu.add(options);
+        GameMenu.add(quit);
         options.addActionListener(this);
-
+        livello  = 1;
         quit.addActionListener(this);
         this.setContentPane(GameMenu);
         setVisible(true);
@@ -111,6 +113,16 @@ public class MainFrame extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+    public void ballPanelLoad() {
+        remove(GameMenu);
+        p1 = new BallPanel();
+        add(BorderLayout.CENTER, p1);
+        p1.init(livello, language, this);
+        setContentPane(p1);
+        addKeyListener(p1);
+        setVisible(true);
+    }
+
     public static void main(String[] args) {
         new MainFrame();
     }
@@ -118,16 +130,15 @@ public class MainFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == newGame) {
-
-            remove(GameMenu);
-            p1 = new BallPanel();
-            add(BorderLayout.CENTER, p1);
-            p1.init(1, language, this);
-            setContentPane(p1);
-            addKeyListener(p1);
-            setVisible(true);
-
+            ballPanelLoad();
         }
+        if (e.getSource() == next) {
+            b = new DataBase();
+            livello = b.read();
+
+            ballPanelLoad();
+        }
+
         if (e.getSource() == quit) {
             this.dispose();
         }
@@ -154,6 +165,5 @@ public class MainFrame extends JFrame implements ActionListener {
             remove(settingPanel);
             gameMenu();
         }
-
     }
 }

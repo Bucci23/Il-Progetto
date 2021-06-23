@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public abstract class Personaggio extends AbstractGameObject{
+public abstract class Personaggio extends AbstractGameObject {
     boolean onGround = false;
     boolean inWater;
     int vita;
@@ -10,44 +10,45 @@ public abstract class Personaggio extends AbstractGameObject{
     ImageIcon r;
     boolean isJumping;
     boolean isHittingEnemy;
+
     @Override
     public Rectangle getBounds() {
-        return new Rectangle((int) x,(int) y, w, h);
+        return new Rectangle((int) x, (int) y, w, h);
     }
+
     public void gravity() {
-        if (!inWater){
+        if (!inWater) {
             if (!onGround)
                 speedY = speedY + 1;
-        }
-        else{
+        } else {
             if (!onGround)
                 speedY = speedY + 0.3;
         }
 
     }
+
     public void setJumping(boolean isJumping) {
         this.isJumping = isJumping;
     }
 
     public void goRight() {
-        icon=r;
+        icon = r;
         if (this.getSpeedX() < 10)
             this.setSpeedX(this.getSpeedX() + 2);
     }
 
     public void goLeft() {
-        icon=l;
+        icon = l;
         if (this.getSpeedX() > -10)
             this.setSpeedX(this.getSpeedX() - 2);
     }
 
     public void jump(boolean enemy) {
         if (!this.isJumping || enemy) {
-            if(!inWater) {
+            if (!inWater) {
                 this.setSpeedY(-25);
                 this.setJumping(true);
-            }
-            else{
+            } else {
                 this.setSpeedY(-10);
             }
         }
@@ -69,7 +70,7 @@ public abstract class Personaggio extends AbstractGameObject{
 
     public void floorCollisions() {
         if (y >= parent.getHeight() - w && !onGround) {
-            if(this instanceof Ball)
+            if (this instanceof Ball)
                 floorBounce(parent.getHeight() - h);
         } else
             onGround = false;
@@ -81,11 +82,14 @@ public abstract class Personaggio extends AbstractGameObject{
             if (go != this) {
                 if (go instanceof Ground)
                     groundCollide((Ground) go);
-                if(go instanceof Nemico){
+                if (go instanceof Nemico) {
                     enemyCollide((Nemico) go);
                 }
-                if(go instanceof PowerUp){
+                if (go instanceof PowerUp) {
                     powerUpCollide((PowerUp) go);
+                }
+                if (go instanceof Salvadanaio && this instanceof Ball) {
+                    ((Salvadanaio) go).isColliding((Ball) this);
                 }
 
 
@@ -93,8 +97,8 @@ public abstract class Personaggio extends AbstractGameObject{
         }
     }
 
-    public void powerUpCollide(PowerUp c){
-        if(this.getBounds().intersects(c.getBounds())){
+    public void powerUpCollide(PowerUp c) {
+        if (this.getBounds().intersects(c.getBounds())) {
             powerUpCollect(c);
         }
     }
@@ -102,15 +106,16 @@ public abstract class Personaggio extends AbstractGameObject{
     public abstract void powerUpCollect(PowerUp c);
 
     private void cornerBounce(Ground g) {
-        if(this.y<g.getY()){
-            floorBounce(g.getY()-h);
+        if (this.y < g.getY()) {
+            floorBounce(g.getY() - h);
         }
-        if(this.y + h>g.getY()+g.getH()){
-            roofBounce(g.getY()+g.getH());
+        if (this.y + h > g.getY() + g.getH()) {
+            roofBounce(g.getY() + g.getH());
         }
 
     }
-    public void groundCollide(Ground g){
+
+    public void groundCollide(Ground g) {
         if (this.getBounds().intersects(g.getBounds())) {
             if (this.y > g.getY() && this.y + h < (g.getY() + g.getH())) {
                 if (this.x < g.getX())
@@ -130,6 +135,7 @@ public abstract class Personaggio extends AbstractGameObject{
             }
         }
     }
+
     public abstract void enemyCollide(Nemico n);
 
     public void floorBounce(double y) {
@@ -147,7 +153,7 @@ public abstract class Personaggio extends AbstractGameObject{
     }
 
     public void wallBounce(double x) {
-        speedX = -speedX/2;
+        speedX = -speedX / 2;
         this.x = x;
     }
 

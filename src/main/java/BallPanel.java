@@ -25,12 +25,15 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
     ImageIcon gameOverRetry;
     ImageIcon pauseImage;
     ImageIcon pauseResume;
+    ImageIcon lvSuperatoIMG;
     boolean scrollingR;
     boolean scrollingL;
     boolean scrollingU;
     boolean scrollingD;
     boolean gameOver;
     boolean animation;
+    boolean lvSuperato;
+    boolean language;
     double sceneSpeedX;
     double sceneSpeedY;
     int ground;
@@ -39,6 +42,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
     boolean pause;
     Timer GOTimer;
     Timer PTimer;
+    Timer LTimer;
 
     public BallPanel() {
         rnd = new Random();
@@ -57,9 +61,15 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
     public void init(int livello, boolean language, MainFrame parent) {
         lgo = new ArrayList<GameObject>();
         this.parent = parent;
+        this.language = language;
+        this.livello = livello;
         addKeyListener(this);
+        System.out.println("LIVElLO: " + livello);
         if (livello == 1)
             initLV1();
+        if(livello == 2){
+            initLV3();
+        }
         if(!language) {
             gameOverImage = new ImageIcon("images/gameOver.png");
             gameOverRetry = new ImageIcon("images/gameOverRetry.png");
@@ -77,10 +87,12 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         bY = -150;
         sceneSpeedX = 0;
         sceneSpeedY = 0;
-
+        lvSuperato = false;
         timer = new Timer(20, this);
         GOTimer = new Timer(700, this);
         PTimer = new Timer(700, this);
+        LTimer = new Timer(5000, this);
+
         timer.start();
         pause = false;
 
@@ -235,6 +247,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
             enemyUpdate();
             powerUpUpdate();
             checkDeath();
+            checkLVSuperato();
             repaint();
         }
         if(e.getSource() == GOTimer){
@@ -246,6 +259,9 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
                 animation = !animation;
                 repaint();
             }
+        }
+        if(e.getSource() == LTimer){
+            init(livello + 1, language, parent);
         }
 
     }
@@ -268,6 +284,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
 
     public void paintBackground(Graphics g) {
         int count = 0;
+
         for (int i = bX - background.getIconWidth(); i < 10000 + bX; i += background.getIconWidth()) {
             count++;
             if (count % 2 == 0) {
@@ -280,14 +297,16 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         if(pause){
             timer.stop();
             PTimer.start();
-            if(!gameOver) {
+            if(!gameOver && !lvSuperato) {
                 if(animation){
                     pauseImage.paintIcon(this,g,0,0);
                 }else{
                     pauseResume.paintIcon(this,g, 0, 0);
                 }
-            } else{
+            } else if(gameOver){
                 paintGameOver(g);
+            } else {
+                //lvSuperatoIMG.paintIcon(this, g, 0, 0);
             }
         }
     }
@@ -306,7 +325,12 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
             GOTimer.start();
         }
     }
-
+    void checkLVSuperato(){
+        if(lvSuperato){
+            pause = true;
+            LTimer.start();
+        }
+    }
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -380,7 +404,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         lgo.add(new Dinosauro(this, lgo, 2900, 500, "images/dinoL.png", "images/dinoR.png"));
         lgo.add(new Dinosauro(this, lgo, 3000, 500, "images/dinoL.png", "images/dinoR.png"));
         lgo.add(new Coin(this, lgo, 700, 1050, "images/moneta.png"));
-        lgo.add(new Coin(this, lgo, 200, 500, "images/moneta.png"));
+        lgo.add(new Coin(this, lgo, 200, 950, "images/moneta.png"));
         lgo.add(new Coin(this, lgo, 500, 900, "images/moneta.png"));
         lgo.add(new Vite(this, lgo, 900, 1100, "images/Pozione.png"));
         lgo.add(new Munizioni(this, lgo, 700, 1100, "images/Munizioni.png"));
@@ -389,12 +413,18 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener {
         lgo.add(new Ground(this, lgo, 3000, 200, 10000, 4000, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
         lgo.add(new Ground(this, lgo, 100, 10000, -100, 0, 0, 0, null, null));
         lgo.add(new Ground(this, lgo, 100, 10000, 10000, 0, 0, 0, null, null));
+        if(language)
+            lgo.add(new Salvadanaio(this, 5000, 1100, 1, "images/vignettaITA.png","images/vignettaLVSuperatoITA.png" ));
+        else
+            lgo.add(new Salvadanaio(this, 5000, 1100, 1, "images/vignettaITA.png", "images/vignettaLVSuperatoENG.png"));
 
 
     }
 
     void initLV3() {
+        ground = 0;
         background = new ImageIcon("images/SfondoStrano.png");
+        backgroundS = new ImageIcon("images/SfondoStrano.png");
         lgo.add(new Ball(this, lgo, 60, 60, getWidth(), getHeight(), 1, 1, Color.BLUE));
         lgo.add(1, new Ground(this, lgo, 300, 400, 200, 1000, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
         lgo.add(2, new Ground(this, lgo, 600, 400, 1000, 700, 0, 0, "images/groundgrass.png", "images/groundsimple.png"));
