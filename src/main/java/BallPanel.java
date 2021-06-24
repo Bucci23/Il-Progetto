@@ -73,10 +73,12 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
         if (livello == 2) {
             initLV2();
         }
-        if (livello == 2) {
-            initLV2();
+        if (livello == 3) {
+            initLV3();
         }
-
+        if (livello == 4) {
+            initLV4();
+        }
         if (!language) {
             gameOverImage = new ImageIcon("images/gameOver.png");
             gameOverRetry = new ImageIcon("images/gameOverRetry.png");
@@ -495,48 +497,72 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
 
     }
 
-    void initLV3(){
+    void initLV3() {
         ground = -10000;
         background = new ImageIcon("images/ghiaccio.jpg");
         backgroundS = new ImageIcon("images/ghiaccioS.jpg");
-
+        bY = 0;
         lgo.add(new Ball(this, lgo, 60, 60, getWidth(), getHeight(), 1, 1, Color.BLUE));
         if (language)
             lgo.add(new Salvadanaio(this, 9800, 1100, 3, "images/vignettaITA.png", "images/vignettaLVSuperatoITA.png"));
         else
             lgo.add(new Salvadanaio(this, 9800, 1100, 3, "images/vignettaENG.png", "images/vignettaLVSuperatoENG.png"));
-        lgo.add(new Ball(this, lgo, 60, 60, getWidth(), getHeight(), 1, 1, Color.BLUE));
-        lgo.add(1, new Ground(this, lgo, 300, 400, 200, 1000, 0, 0, "images/groundghiaccio.png", "images/groundghiaccioS.png"));
-        lgo.add(2, new Ground(this, lgo, 600, 400, 1000, 700, 0, 0, "images/groundghiaccio.png", "images/groundghiaccioS.png"));
-        lgo.add(3, new Ground(this, lgo, 600, 200, 1800, 900, 0, 0, "images/groundghiaccio.png", "images/groundghiaccioS.png"));
-        lgo.add(4, new Ground(this, lgo, 300, 400, 2500, 600, 0, 0, "images/groundghiaccio.png", "images/groundghiaccioS.png"));
-        lgo.add(5, new Ground(this, lgo, 300, 400, 3000, 500, 0, 0, "images/groundghiaccio.png", "images/groundghiaccioS.png"));
-        lgo.add(6, new Ground(this, lgo, 300, 400, 200, 400, 0, 0, "images/groundghiaccio.png", "images/groundghiaccioS.png"));
-        lgo.add(7, new Ground(this, lgo, 700, 50, 4000, 900, 0, 0, "images/groundghiaccio.png", "images/groundghiaccioS.png"));
+        lgo.add(new Ground(this, lgo, 300, 400, 200, 1000, 0, 0, "images/groundghiaccio.png", "images/groundghiaccioS.png"));
+        lgo.add(new Ground(this, lgo, 600, 400, 1000, 700, 0, 0, "images/groundghiaccio.png", "images/groundghiaccioS.png"));
+        lgo.add(new Ground(this, lgo, 600, 400, 1800, 900, 0, 0, "images/groundghiaccio.png", "images/groundghiaccioS.png"));
+        lgo.add(new Ground(this, lgo, 700, 500, 2300, 600, 0, 0, "images/groundghiaccio.png", "images/groundghiaccioS.png"));
+        lgo.add(new Ground(this, lgo, 500, 400, 3000, 500, 0, 0, "images/groundghiaccio.png", "images/groundghiaccioS.png"));
+        lgo.add(new Ground(this, lgo, 700, 50, 4000, 900, 0, 0, "images/groundghiaccio.png", "images/groundghiaccioS.png"));
         lgo.add(new Ground(this, lgo, 300, 100, 1200, 400, 0, 0, "images/groundghiaccio.png", "images/groundghiaccioS.png"));
-        lgo.add(new Ground(this, lgo, 350, 150, 1500, 200, 0, 0, "images/groundghiaccio.png", "images/groundghiaccioS.png"));
-        lgo.add(new Ground(this, lgo, 10000, 100, 0, 1300, 0, 0, "images/groundghiaccio.png", "images/groundghiaccioS.png"));
-        lgo.add(new Pinguino(this, lgo, 1100, 500, "images/PinguinoR.png", "images/PinguinoL.png"));
-        lgo.add(new Coin(this, lgo, 700, 1050, "images/moneta.png"));
+        lgo.add(new Ground(this, lgo, 5000, 100, 0, 1300, 0, 0, "images/groundghiaccio.png", "images/groundghiaccioS.png"));
+        lgo.add(new Ground(this, lgo, 300, 100, 5500, 1300, 0, 0, "images/groundghiaccio.png", "images/groundghiaccioS.png"));
+        lgo.add(new Ground(this, lgo, 200, 400, 6000, 1000, 0, 0, "images/groundghiaccio.png", "images/groundghiaccioS.png"));
+        lgo.add(new Ground(this, lgo, 200, 400, 6600, 1000, 0, 0, "images/groundghiaccio.png", "images/groundghiaccioS.png"));
+        lgo.add(new Ground(this, lgo, 200, 400, 7000, 700, 0, 0, "images/groundghiaccio.png", "images/groundghiaccioS.png"));
+        lgo.add(new Ground(this, lgo, 500, 100, 7000, 1400, 0, 0, "images/groundghiaccio.png", "images/groundghiaccioS.png"));
+        lgo.add(new Ground(this, lgo, 500, 100, 8000, 1300, 0, 0, "images/groundghiaccio.png", "images/groundghiaccioS.png"));
+        lgo.add(new Ground(this, lgo, 200, 100, 8700, 1000, 0, 0, "images/groundghiaccio.png", "images/groundghiaccioS.png"));
+        lgo.add(new Ground(this, lgo, 1000, 300, 9000, 1300, 0, 0, "images/groundghiaccio.png", "images/groundghiaccioS.png"));
+
+
+        lgo.add(new Pinguino(this, lgo, 1100, 500, "images/PinguinoL.png", "images/PinguinoR.png"));
+        lgo.add(new Pinguino(this, lgo, 2600, 1200, "images/PinguinoL.png", "images/PinguinoR.png"));
+        lgo.add(new Pinguino(this, lgo, 2500, 500, "images/PinguinoL.png", "images/PinguinoR.png"));
+        lgo.add(new Pinguino(this, lgo, 7100, 1300, "images/PinguinoL.png", "images/PinguinoR.png"));
+        lgo.add(new Pinguino(this, lgo, 100, 500, "images/PinguinoL.png", "images/PinguinoR.png"));
+        lgo.add(new Pinguino(this, lgo, 4500, 1200, "images/PinguinoL.png", "images/PinguinoR.png"));
+        lgo.add(new Coin(this, lgo, 1400, 350, "images/moneta.png"));
+        lgo.add(new Coin(this, lgo, 2600, 1250, "images/moneta.png"));
+        lgo.add(new Coin(this, lgo,1750 , 1250, "images/moneta.png"));
+        lgo.add(new Coin(this, lgo, 7100, 1350, "images/moneta.png"));
+        lgo.add(new Coin(this, lgo, 5200, 1050, "images/moneta.png"));
+
         lgo.add(new Coin(this, lgo, 200, 500, "images/moneta.png"));
         lgo.add(new Coin(this, lgo, 500, 900, "images/moneta.png"));
-        lgo.add(new Vite(this, lgo, 900, 1100, "images/Pozione.png"));
+        lgo.add(new Vite(this, lgo, 3200, 430, "images/Pozione.png"));
+        lgo.add(new Munizioni(this, lgo, 300, 950, "images/Munizioni.png"));
         lgo.add(new Munizioni(this, lgo, 700, 1100, "images/Munizioni.png"));
+        lgo.add(new Munizioni(this, lgo, 700, 1100, "images/Munizioni.png"));
+        lgo.add(new Vite(this, lgo, 500, 1100, "images/Pozione.png"));
+        lgo.add(new Vite(this, lgo, 500, 1100, "images/Pozione.png"));
         lgo.add(new Vite(this, lgo, 500, 1100, "images/Pozione.png"));
         lgo.add(new Ground(this, lgo, 200, 3000, 10000, 1300, 0, 0, "images/groundghiaccio.png", "images/groundghiaccioS.png"));
         lgo.add(new Ground(this, lgo, 3000, 200, 10000, 4000, 0, 0, "images/groundghiaccio.png", "images/groundghiaccioS.png"));
         lgo.add(new InvisibleWall(this, lgo, 10000, 100, 0, 1500, 0, 0, null, null, true));
+        lgo.add(new Ground(this, lgo, 100, 10000, -100, 0, 0, 0, null, null));
+        lgo.add(new Ground(this, lgo, 100, 10000, 10000, 0, 0, 0, null, null));
     }
 
     void initLV4() {
         ground = -10000;
         background = new ImageIcon("images/vulcano.png");
         backgroundS = new ImageIcon("images/vulcanoS.png");
+        lgo.add(new Ball(this, lgo, 60, 60, getWidth(), getHeight(), 1, 1, Color.BLUE));
         if (language)
             lgo.add(new Salvadanaio(this, 9800, 1100, 4, "images/vignettaITA.png", "images/vignettaLVSuperatoITA.png"));
         else
             lgo.add(new Salvadanaio(this, 9800, 1100, 4, "images/vignettaENG.png", "images/vignettaLVSuperatoENG.png"));
-        lgo.add(new Ball(this, lgo, 60, 60, getWidth(), getHeight(), 1, 1, Color.BLUE));
+
         lgo.add(1, new Ground(this, lgo, 300, 400, 200, 1000, 0, 0, "images/groundvulcano.png", "images/groundvulcanoS.png"));
         lgo.add(2, new Ground(this, lgo, 600, 400, 1000, 700, 0, 0, "images/groundvulcano.png", "images/groundvulcanoS.png"));
         lgo.add(3, new Ground(this, lgo, 600, 200, 1800, 900, 0, 0, "images/groundvulcano.png", "images/groundvulcanoS.png"));
@@ -557,6 +583,8 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
         lgo.add(new Ground(this, lgo, 200, 3000, 10000, 1300, 0, 0, "images/groundvulcano.png", "images/groundvulcanoS.png"));
         lgo.add(new Ground(this, lgo, 3000, 200, 10000, 4000, 0, 0, "images/groundvulcano.png", "images/groundvulcanoS.png"));
         lgo.add(new InvisibleWall(this, lgo, 10000, 100, 0, 1500, 0, 0, null, null, true));
+        lgo.add(new Ground(this, lgo, 100, 10000, -100, 0, 0, 0, null, null));
+        lgo.add(new Ground(this, lgo, 100, 10000, 10000, 0, 0, 0, null, null));
     }
 
 

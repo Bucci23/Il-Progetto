@@ -147,6 +147,9 @@ public abstract class Personaggio extends AbstractGameObject {
     public void floorBounce(double y) {
         if (speedY > 0)
             speedY = -speedY / 2;
+        if(((BallPanel) parent).livello == 3 && this instanceof Ball){
+            speedX = speedX * 9/10;
+        }else
         speedX = speedX * 4 / 5;
 
         this.y = y;
