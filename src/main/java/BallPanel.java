@@ -16,6 +16,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
     Guida guida;
     int bX;
     int bY;
+    int offset;
     Random rnd;
     ImageIcon background;
     ImageIcon backgroundS;
@@ -23,6 +24,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
     ImageIcon gameOverRetry;
     ImageIcon pauseImage;
     ImageIcon pauseResume;
+    ImageIcon fondale;
     ImageIcon lvSuperatoIMG;
     boolean scrollingR;
     boolean scrollingL;
@@ -63,19 +65,21 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
         this.language = language;
         this.livello = livello;
         addKeyListener(this);
+        offset = 6;
+        bX = -500;
+        bY = -150;
         if (livello == 1)
             initLV1();
-        if(livello == 2){
+        if (livello == 2) {
             initLV2();
         }
-        if(!language) {
+        if (!language) {
             gameOverImage = new ImageIcon("images/gameOver.png");
             gameOverRetry = new ImageIcon("images/gameOverRetry.png");
             pauseImage = new ImageIcon("images/pause.png");
             pauseResume = new ImageIcon("images/pauseResume.png");
             lvSuperatoIMG = new ImageIcon("images/VignettaLVSuperatoENG.png");
-        }
-        else{
+        } else {
             gameOverImage = new ImageIcon("images/gameOver.png");
             gameOverRetry = new ImageIcon("images/gameOverRetryITA.png");
             pauseImage = new ImageIcon("images/pauseITA.png");
@@ -83,8 +87,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
             lvSuperatoIMG = new ImageIcon("images/VignettaLVSuperatoITA.png");
         }
         skills = new Skills((Ball) lgo.get(0), this);
-        bX = -500;
-        bY = -150;
+
         sceneSpeedX = 0;
         sceneSpeedY = 0;
         lvSuperato = false;
@@ -92,7 +95,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
         GOTimer = new Timer(700, this);
         PTimer = new Timer(700, this);
         LTimer = new Timer(3000, this);
-        guida = new Guida(this,"images/guida.png", "images/showGuide.png", "images/guidaX.png");
+        guida = new Guida(this, "images/guida.png", "images/showGuide.png", "images/guidaX.png");
         timer.start();
         pause = false;
 
@@ -189,7 +192,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
 
     public void bUpdate() {
         bX += (sceneSpeedX / 3);
-        bY += (sceneSpeedY / 6);
+        bY += (sceneSpeedY / offset);
     }
 
     private void shootUpdate() {
@@ -250,17 +253,17 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
             checkLVSuperato();
             repaint();
         }
-        if(e.getSource() == GOTimer){
+        if (e.getSource() == GOTimer) {
             animation = !animation;
             repaint();
         }
-        if(e.getSource() == PTimer){
-            if(!gameOver) {
+        if (e.getSource() == PTimer) {
+            if (!gameOver) {
                 animation = !animation;
                 repaint();
             }
         }
-        if(e.getSource() == LTimer){
+        if (e.getSource() == LTimer) {
             init(livello + 1, language, parent);
         }
 
@@ -271,23 +274,22 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
     public void paintComponent(Graphics g) {
 
         super.paintComponent(g);
-            paintBackground(g);
-            for (GameObject go : lgo) {
-                if(!pause)
-                    go.update();
-                go.paint(g);
-            }
-            skills.update();
-            skills.paint(g);
-            guida.update();
-            guida.paint(g);
+        paintBackground(g);
+        for (GameObject go : lgo) {
+            if (!pause)
+                go.update();
+            go.paint(g);
+        }
+        skills.update();
+        skills.paint(g);
+        guida.update();
+        guida.paint(g);
 
         paintPause(g);
     }
 
     public void paintBackground(Graphics g) {
         int count = 0;
-
         for (int i = bX - background.getIconWidth(); i < 10000 + bX; i += background.getIconWidth()) {
             count++;
             if (count % 2 == 0) {
@@ -296,44 +298,49 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
                 backgroundS.paintIcon(this, g, i + getX(), bY);
         }
     }
-    public void paintPause(Graphics g){
-        if(pause){
+
+    public void paintPause(Graphics g) {
+        if (pause) {
             timer.stop();
             PTimer.start();
-            if(!gameOver && !lvSuperato && !guida.showing) {
-                if(animation){
-                    pauseImage.paintIcon(this,g,0,0);
-                }else{
-                    pauseResume.paintIcon(this,g, 0, 0);
+            if (!gameOver && !lvSuperato && !guida.showing) {
+                if (animation) {
+                    pauseImage.paintIcon(this, g, 0, 0);
+                } else {
+                    pauseResume.paintIcon(this, g, 0, 0);
                 }
-            } else if(gameOver && !guida.showing){
+            } else if (gameOver && !guida.showing) {
                 paintGameOver(g);
-            } else if (!guida.showing){
-                lvSuperatoIMG.paintIcon(this, g, getWidth()/2 + 150, getHeight()/2 -100);
+            } else if (!guida.showing) {
+                lvSuperatoIMG.paintIcon(this, g, getWidth() / 2 + 150, getHeight() / 2 - 100);
             }
         }
     }
-    void paintGameOver(Graphics g){
-        if(animation){
-            gameOverImage.paintIcon(this,g,0,0);
-        } else{
+
+    void paintGameOver(Graphics g) {
+        if (animation) {
+            gameOverImage.paintIcon(this, g, 0, 0);
+        } else {
             gameOverRetry.paintIcon(this, g, 0, 0);
         }
     }
-    void checkDeath(){
+
+    void checkDeath() {
         Ball mainBall = (Ball) lgo.get(0);
-        if (mainBall.getVita() <= 0){
+        if (mainBall.getVita() <= 0) {
             gameOver = true;
             pause = true;
             GOTimer.start();
         }
     }
-    void checkLVSuperato(){
-        if(lvSuperato){
+
+    void checkLVSuperato() {
+        if (lvSuperato) {
             pause = true;
             LTimer.start();
         }
     }
+
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -358,7 +365,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
             mainBall.shoot();
         }
         if (e.getKeyChar() == 27) {
-            if(!gameOver) {
+            if (!gameOver) {
                 if (!pause) {
                     pause = true;
                 } else {
@@ -369,8 +376,8 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
             }
 
         }
-        if(e.getKeyChar() == '\n'){
-            if(gameOver){
+        if (e.getKeyChar() == '\n') {
+            if (gameOver) {
                 parent.remove(this);
                 parent.gameMenu();
             }
@@ -389,29 +396,29 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
         backgroundS = new ImageIcon("images/desertoS.jpg");
 
         lgo.add(new Ball(this, lgo, 60, 60, getWidth(), getHeight(), 1, 1, Color.BLUE));
-        if(language)
-            lgo.add(new Salvadanaio(this, 9800, 1100, 1, "images/vignettaITA.png","images/vignettaLVSuperatoITA.png" ));
+        if (language)
+            lgo.add(new Salvadanaio(this, 9800, 1100, 1, "images/vignettaITA.png", "images/vignettaLVSuperatoITA.png"));
         else
             lgo.add(new Salvadanaio(this, 9800, 1100, 1, "images/vignettaENG.png", "images/vignettaLVSuperatoENG.png"));
         lgo.add(new Ground(this, lgo, 6000, 100, -500, 1300, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
         lgo.add(new Ground(this, lgo, 300, 100, 5900, 1300, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
-        lgo.add( new Ground(this, lgo, 300, 300, 700, 1000, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
-        lgo.add( new Ground(this, lgo, 300, 600, 1000, 700, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
-        lgo.add( new Ground(this, lgo, 300, 900, 1300, 400, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add(new Ground(this, lgo, 300, 300, 700, 1000, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add(new Ground(this, lgo, 300, 600, 1000, 700, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add(new Ground(this, lgo, 300, 900, 1300, 400, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
         lgo.add(new Coin(this, lgo, 1650, 1250, "images/moneta.png"));
-        lgo.add( new Ground(this, lgo, 300, 200, 2200, 900, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
-        lgo.add( new Ground(this, lgo, 300, 600, 1900, 600, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
-        lgo.add( new Ground(this, lgo, 300, 800, 1600, 300, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add(new Ground(this, lgo, 300, 200, 2200, 900, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add(new Ground(this, lgo, 300, 600, 1900, 600, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add(new Ground(this, lgo, 300, 800, 1600, 300, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
         lgo.add(new Coin(this, lgo, 1650, 250, "images/moneta.png"));
-        lgo.add( new Ground(this, lgo, 300, 300, 3000, 1000, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add(new Ground(this, lgo, 300, 300, 3000, 1000, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
         lgo.add(new Munizioni(this, lgo, 3100, 950, "images/Munizioni.png"));
-        lgo.add( new Ground(this, lgo, 300, 200, 6400, 1000, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
-        lgo.add( new Ground(this, lgo, 300, 200, 6900, 1100, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
-        lgo.add( new Ground(this, lgo, 300, 200, 7400, 1100, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
-        lgo.add( new Ground(this, lgo, 300, 200, 7400, 650, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
-        lgo.add( new Ground(this, lgo, 300, 200, 8000, 1100, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
-        lgo.add( new Ground(this, lgo, 300, 200, 8400, 1100, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
-        lgo.add( new Ground(this, lgo, 1000, 200, 9000, 1300, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add(new Ground(this, lgo, 300, 200, 6400, 1000, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add(new Ground(this, lgo, 300, 200, 6900, 1100, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add(new Ground(this, lgo, 300, 200, 7400, 1100, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add(new Ground(this, lgo, 300, 200, 7400, 650, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add(new Ground(this, lgo, 300, 200, 8000, 1100, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add(new Ground(this, lgo, 300, 200, 8400, 1100, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add(new Ground(this, lgo, 1000, 200, 9000, 1300, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
 
 
         lgo.add(new Coin(this, lgo, 7500, 600, "images/moneta.png"));
@@ -433,27 +440,32 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
 
     void initLV2() {
         ground = -10000;
+        bY = -400;
+        offset = 3;
         background = new ImageIcon("images/spiaggia.jpg");
         backgroundS = new ImageIcon("images/spiaggiaS.jpg");
+        fondale = new ImageIcon("images/fondale.jpg");
         lgo.add(new Ball(this, lgo, 60, 60, getWidth(), getHeight(), 1, 1, Color.BLUE));
-        if(language)
-            lgo.add(new Salvadanaio(this, 9800, 1100, 1, "images/vignettaITA.png","images/vignettaLVSuperatoITA.png" ));
+        if (language)
+            lgo.add(new Salvadanaio(this, 9800, 1100, 2, "images/vignettaITA.png", "images/vignettaLVSuperatoITA.png"));
         else
-            lgo.add(new Salvadanaio(this, 9800, 1100, 1, "images/vignettaENG.png", "images/vignettaLVSuperatoENG.png"));
-        lgo.add(new Ground(this, lgo, 6000, 100, -500, 1300, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+            lgo.add(new Salvadanaio(this, 9800, 1100, 2, "images/vignettaENG.png", "images/vignettaLVSuperatoENG.png"));
+        lgo.add(new Munizioni(this, lgo, 400, 1250, "images/Munizioni.png"));
+        lgo.add(new Ground(this, lgo, 6000, 1300, -500, 1300, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
         lgo.add(new Ground(this, lgo, 300, 100, 5900, 1300, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
-        lgo.add( new Ground(this, lgo, 300, 300, 700, 1000, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
-        lgo.add( new Ground(this, lgo, 300, 600, 1000, 700, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
-        lgo.add( new Ground(this, lgo, 300, 900, 1300, 400, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add(new Ground(this, lgo, 300, 200, 700, 1100, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add(new Ground(this, lgo, 300, 300, 1000, 1000, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add(new Ground(this, lgo, 300, 200, 1300, 1100, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
         lgo.add(new Coin(this, lgo, 1650, 1250, "images/moneta.png"));
-        lgo.add( new Ground(this, lgo, 300, 200, 2200, 900, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
-        lgo.add( new Ground(this, lgo, 300, 600, 1900, 600, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
-        lgo.add( new Ground(this, lgo, 300, 800, 1600, 300, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add(new Ground(this, lgo, 300, 200, 2200, 1100, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add(new Ground(this, lgo, 300, 300, 1900, 1000, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add(new Ground(this, lgo, 300, 400, 1600, 900, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
         lgo.add(new Coin(this, lgo, 1650, 250, "images/moneta.png"));
-        lgo.add( new Ground(this, lgo, 300, 300, 3000, 1000, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add(new Ground(this, lgo, 300, 300, 3000, 1000, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
         lgo.add(new Munizioni(this, lgo, 3100, 950, "images/Munizioni.png"));
-        lgo.add( new Ground(this, lgo, 1000, 200, 9000, 1300, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add(new Ground(this, lgo, 1000, 5000, 9000, 1300, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
         lgo.add(new Coin(this, lgo, 7500, 600, "images/moneta.png"));
+        lgo.add(new Ground(this, lgo, 1000, 200, 9000, 1300, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
         lgo.add(new Granchio(this, lgo, 3100, 900, "images/GranchioL.png", "images/GranchioR.png"));
         lgo.add(new Granchio(this, lgo, 2000, 1200, "images/GranchioL.png", "images/GranchioR.png"));
         lgo.add(new Granchio(this, lgo, 1250, 1200, "images/GranchioL.png", "images/GranchioR.png"));
@@ -463,7 +475,10 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
         lgo.add(new Granchio(this, lgo, 3500, 1100, "images/GranchioL.png", "images/GranchioR.png"));
         lgo.add(new Granchio(this, lgo, 4800, 1100, "images/GranchioL.png", "images/GranchioR.png"));
         lgo.add(new Granchio(this, lgo, 5000, 1100, "images/GranchioL.png", "images/GranchioR.png"));
+        lgo.add(new Water("images/fondale.png", 5500, 1300, 4000, 1000, this));
+
         lgo.add(new Ground(this, lgo, 3000, 200, 10000, 4000, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add(new Ground(this, lgo, 4000, 300, 5500, 2300, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
         lgo.add(new Ground(this, lgo, 100, 10000, -100, 0, 0, 0, null, null));
         lgo.add(new Ground(this, lgo, 100, 10000, 10000, 0, 0, 0, null, null));
 
@@ -506,13 +521,12 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if(e.getX() >= getWidth() - 100 && e.getY() <= 100){
+        if (e.getX() >= getWidth() - 100 && e.getY() <= 100) {
 
-            if(!guida.showing) {
+            if (!guida.showing) {
                 guida.showing = true;
                 pause = true;
-            }
-            else{
+            } else {
                 pause = false;
                 guida.showing = false;
                 timer.start();

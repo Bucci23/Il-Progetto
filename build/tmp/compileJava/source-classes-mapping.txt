@@ -4,39 +4,41 @@ GameObject.java
  GameObject
 Ground.java
  Ground
-InvisibleWall.java
- InvisibleWall
-Nemico.java
- Nemico
+Guida.java
+ Guida
 Granchio.java
  Granchio
+MainFrame.java
+ MainFrame
+Munizioni.java
+ Munizioni
+InvisibleWall.java
+ InvisibleWall
 Coin.java
  Coin
-Personaggio.java
- Personaggio
-Dinosauro.java
- Dinosauro
-Ball.java
- Ball
+Salvadanaio.java
+ Salvadanaio
 Squalo.java
  Squalo
 Skills.java
  Skills
-Fuoco.java
- Fuoco
 PowerUp.java
  PowerUp
 Vite.java
  Vite
-Munizioni.java
- Munizioni
-BallPanel.java
- BallPanel
+Dinosauro.java
+ Dinosauro
+Personaggio.java
+ Personaggio
+Water.java
+ Water
 AbstractGameObject.java
  AbstractGameObject
-Guida.java
- Guida
-Salvadanaio.java
- Salvadanaio
-MainFrame.java
- MainFrame
+Nemico.java
+ Nemico
+BallPanel.java
+ BallPanel
+Ball.java
+ Ball
+Fuoco.java
+ Fuoco
