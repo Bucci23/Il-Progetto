@@ -21,8 +21,9 @@ public class Squalo extends Nemico {
     public void movimento() {
         speedX = standardSpeedX;
         int jmp = rnd.nextInt(100);
-        if (jmp <= 10) {
-            this.jump(false);
+        if (jmp <= 6) {
+            if(inWater)
+                this.jump(false);
         }
         if (jmp == 11) {
             standardSpeedX = -standardSpeedX;
