@@ -1,29 +1,29 @@
+DataBase.java
+ DataBase
 GameObject.java
  GameObject
 Ground.java
  Ground
 InvisibleWall.java
  InvisibleWall
-Fuoco.java
- Fuoco
-DataBase.java
- DataBase
-Granchio.java
- Granchio
 Nemico.java
  Nemico
-Dinosauro.java
- Dinosauro
-Personaggio.java
- Personaggio
+Granchio.java
+ Granchio
 Coin.java
  Coin
+Personaggio.java
+ Personaggio
+Dinosauro.java
+ Dinosauro
 Ball.java
  Ball
 Squalo.java
  Squalo
 Skills.java
  Skills
+Fuoco.java
+ Fuoco
 PowerUp.java
  PowerUp
 Vite.java
