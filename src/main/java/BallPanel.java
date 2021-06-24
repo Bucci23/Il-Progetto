@@ -73,6 +73,10 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
         if (livello == 2) {
             initLV2();
         }
+        if (livello == 2) {
+            initLV2();
+        }
+
         if (!language) {
             gameOverImage = new ImageIcon("images/gameOver.png");
             gameOverRetry = new ImageIcon("images/gameOverRetry.png");

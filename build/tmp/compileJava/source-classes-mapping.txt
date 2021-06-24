@@ -2,20 +2,20 @@ Granchio.java
  Granchio
 Nemico.java
  Nemico
-InvisibleWall.java
- InvisibleWall
+Gorilla.java
+ Gorilla
 Personaggio.java
  Personaggio
 GameObject.java
  GameObject
 Ground.java
  Ground
-Dinosauro.java
- Dinosauro
+Munizioni.java
+ Munizioni
 Ball.java
  Ball
-Coin.java
- Coin
+Squalo.java
+ Squalo
 Skills.java
  Skills
 Fuoco.java
@@ -26,10 +26,14 @@ Vite.java
  Vite
 DataBase.java
  DataBase
-Munizioni.java
- Munizioni
-Squalo.java
- Squalo
+Pinguino.java
+ Pinguino
+Coin.java
+ Coin
+Dinosauro.java
+ Dinosauro
+InvisibleWall.java
+ InvisibleWall
 BallPanel.java
  BallPanel
 AbstractGameObject.java
@@ -38,10 +42,6 @@ Guida.java
  Guida
 Salvadanaio.java
  Salvadanaio
-Gorilla.java
- Gorilla
-Pinguino.java
- Pinguino
 Water.java
  Water
 MainFrame.java
