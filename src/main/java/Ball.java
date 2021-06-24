@@ -28,10 +28,10 @@ public class Ball extends Personaggio implements ActionListener {
         this.r = new ImageIcon("images/mostro.png");
         this.l = new ImageIcon("images/mostroSpecchiato.png");
         icon = r;
-        this.vita = 10;
+        this.vita = 5;
         isShooting = false;
         shootDelay = new Timer(500, this);
-        munizioni = 10;
+        munizioni = 5;
         isHittingEnemy = false;
         hitDelay = new Timer(1000, this);
         monete = 0;

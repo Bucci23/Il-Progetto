@@ -21,6 +21,6 @@ public class Vite extends PowerUp {
 
     @Override
     public void specialAbility(Ball ball) {
-        ball.setVita(10);
+        ball.setVita(5);
     }
 }

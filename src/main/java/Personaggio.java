@@ -80,8 +80,11 @@ public abstract class Personaggio extends AbstractGameObject {
     public void isColliding() {
         for (GameObject go : lgo) {
             if (go != this) {
-                if (go instanceof Ground)
+                if (go instanceof Ground){
+                    if(go instanceof InvisibleWall)
+                        ((InvisibleWall) go).kill(this);
                     groundCollide((Ground) go);
+                }
                 if (go instanceof Nemico) {
                     enemyCollide((Nemico) go);
                 }

@@ -28,7 +28,7 @@ public abstract class Nemico extends Personaggio {
         floorCollisions();
         isColliding();
         shootCollision();
-        if (Math.abs(this.x - lgo.get(0).getX()) < 800)
+        if (Math.abs(this.x - lgo.get(0).getX()) < 500)
             movimento();
         newPositions();
     }

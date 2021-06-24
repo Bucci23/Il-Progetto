@@ -385,7 +385,7 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
     }
 
     void initLV1() {
-        ground = 0;
+        ground = -10000;
         background = new ImageIcon("images/deserto.jpg");
         backgroundS = new ImageIcon("images/desertoS.jpg");
 
@@ -394,33 +394,42 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
             lgo.add(new Salvadanaio(this, 9800, 1100, 1, "images/vignettaITA.png","images/vignettaLVSuperatoITA.png" ));
         else
             lgo.add(new Salvadanaio(this, 9800, 1100, 1, "images/vignettaENG.png", "images/vignettaLVSuperatoENG.png"));
-        lgo.add(1, new Ground(this, lgo, 300, 400, 200, 1000, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
-        lgo.add(2, new Ground(this, lgo, 600, 400, 1000, 700, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
-        lgo.add(3, new Ground(this, lgo, 600, 200, 1800, 900, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
-        lgo.add(4, new Ground(this, lgo, 300, 400, 2500, 600, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
-        lgo.add(5, new Ground(this, lgo, 300, 400, 3000, 500, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
-        lgo.add(6, new Ground(this, lgo, 300, 400, 200, 400, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
-        lgo.add(7, new Ground(this, lgo, 700, 50, 4000, 900, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
-        lgo.add(new Ground(this, lgo, 300, 100, 1200, 400, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
-        lgo.add(new Ground(this, lgo, 350, 150, 1500, 200, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
-        lgo.add(new Ground(this, lgo, 11000, 100, -500, 1300, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
-        lgo.add(new Dinosauro(this, lgo, 1100, 500, "images/dinoL.png", "images/dinoR.png"));
-        lgo.add(new Dinosauro(this, lgo, 1500, 500, "images/dinoL.png", "images/dinoR.png"));
-        lgo.add(new Dinosauro(this, lgo, 2000, 900, "images/dinoL.png", "images/dinoR.png"));
-        lgo.add(new Dinosauro(this, lgo, 2500, 500, "images/dinoL.png", "images/dinoR.png"));
-        lgo.add(new Dinosauro(this, lgo, 2800, 500, "images/dinoL.png", "images/dinoR.png"));
-        lgo.add(new Dinosauro(this, lgo, 2900, 500, "images/dinoL.png", "images/dinoR.png"));
-        lgo.add(new Dinosauro(this, lgo, 3000, 500, "images/dinoL.png", "images/dinoR.png"));
-        lgo.add(new Coin(this, lgo, 700, 1050, "images/moneta.png"));
-        lgo.add(new Coin(this, lgo, 200, 950, "images/moneta.png"));
-        lgo.add(new Coin(this, lgo, 500, 900, "images/moneta.png"));
-        lgo.add(new Vite(this, lgo, 900, 1100, "images/Pozione.png"));
-        lgo.add(new Munizioni(this, lgo, 700, 1100, "images/Munizioni.png"));
-        lgo.add(new Vite(this, lgo, 500, 1100, "images/Pozione.png"));
-        lgo.add(new Ground(this, lgo, 200, 3000, 10000, 1300, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add(new Ground(this, lgo, 6000, 100, -500, 1300, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add(new Ground(this, lgo, 300, 100, 5900, 1300, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add( new Ground(this, lgo, 300, 300, 700, 1000, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add( new Ground(this, lgo, 300, 600, 1000, 700, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add( new Ground(this, lgo, 300, 900, 1300, 400, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add(new Coin(this, lgo, 1650, 1250, "images/moneta.png"));
+        lgo.add( new Ground(this, lgo, 300, 200, 2200, 900, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add( new Ground(this, lgo, 300, 600, 1900, 600, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add( new Ground(this, lgo, 300, 800, 1600, 300, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add(new Coin(this, lgo, 1650, 250, "images/moneta.png"));
+        lgo.add( new Ground(this, lgo, 300, 300, 3000, 1000, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add(new Munizioni(this, lgo, 3100, 950, "images/Munizioni.png"));
+        lgo.add( new Ground(this, lgo, 300, 200, 6400, 1000, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add( new Ground(this, lgo, 300, 200, 6900, 1100, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add( new Ground(this, lgo, 300, 200, 7400, 1100, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add( new Ground(this, lgo, 300, 200, 7400, 650, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add( new Ground(this, lgo, 300, 200, 8000, 1100, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add( new Ground(this, lgo, 300, 200, 8400, 1100, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+        lgo.add( new Ground(this, lgo, 1000, 200, 9000, 1300, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
+
+
+        lgo.add(new Coin(this, lgo, 7500, 600, "images/moneta.png"));
+        lgo.add(new Dinosauro(this, lgo, 3100, 900, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new Dinosauro(this, lgo, 2000, 1200, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new Dinosauro(this, lgo, 1250, 1200, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new Dinosauro(this, lgo, 3300, 1000, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new Dinosauro(this, lgo, 4500, 1100, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new Dinosauro(this, lgo, 4000, 1100, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new Dinosauro(this, lgo, 3500, 1100, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new Dinosauro(this, lgo, 4800, 1100, "images/dinoL.png", "images/dinoR.png"));
+        lgo.add(new Dinosauro(this, lgo, 5000, 1100, "images/dinoL.png", "images/dinoR.png"));
         lgo.add(new Ground(this, lgo, 3000, 200, 10000, 4000, 0, 0, "images/SabbiaEsterno.png", "images/SabbiaInterno.png"));
         lgo.add(new Ground(this, lgo, 100, 10000, -100, 0, 0, 0, null, null));
         lgo.add(new Ground(this, lgo, 100, 10000, 10000, 0, 0, 0, null, null));
+        lgo.add(new InvisibleWall(this, lgo, 10000, 100, 0, 1500, 0, 0, null, null, true));
+
 
 
 
