@@ -12,8 +12,8 @@ Nemico.java
  Nemico
 Pinguino.java
  Pinguino
-Gorilla.java
- Gorilla
+Coin.java
+ Coin
 Dinosauro.java
  Dinosauro
 Ball.java
@@ -30,8 +30,8 @@ InvisibleWall.java
  InvisibleWall
 Munizioni.java
  Munizioni
-Coin.java
- Coin
+Gorilla.java
+ Gorilla
 BallPanel.java
  BallPanel
 AbstractGameObject.java

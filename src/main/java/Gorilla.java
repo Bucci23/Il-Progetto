@@ -5,8 +5,8 @@ public class Gorilla extends Nemico{
     public Gorilla(JPanel parent, ArrayList<GameObject> lgo, int x, int y, String r, String l) {
         super(parent, lgo, x, y, r, l);
         vita = 12;
-        this.w = 300;
-        this.h = 300;
+        this.w = 200;
+        this.h = 150;
         standardSpeedX = -5;
     }
 
