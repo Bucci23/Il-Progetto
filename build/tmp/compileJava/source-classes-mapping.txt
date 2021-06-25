@@ -32,6 +32,8 @@ Munizioni.java
  Munizioni
 Gorilla.java
  Gorilla
+Scheletro.java
+ Scheletro
 BallPanel.java
  BallPanel
 AbstractGameObject.java
@@ -46,3 +48,5 @@ Water.java
  Water
 MainFrame.java
  MainFrame
+Mummia.java
+ Mummia
