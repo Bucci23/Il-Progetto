@@ -9,6 +9,7 @@ public class Fuoco extends AbstractGameObject {
     ImageIcon icon;
     boolean existing;
     boolean nemico;
+    AudioPlayer audioPlayer;
     public Fuoco(JPanel parent, ArrayList<GameObject> lgo, int standardSpeed, String r, String l, int x, int y, boolean nemico) {
         this.parent = parent;
         this.lgo = lgo;
@@ -21,6 +22,7 @@ public class Fuoco extends AbstractGameObject {
         h = 20;
         this.existing = true;
         this.nemico = nemico;
+        audioPlayer = new AudioPlayer();
     }
 
     @Override
@@ -58,7 +60,10 @@ public class Fuoco extends AbstractGameObject {
             if(go instanceof Ball && nemico){
                 if (this.getBounds().intersects(go.getBounds())) {
                     setExisting(false);
-                    ((Ball) go).setVita(((Ball) go).getVita() -1);
+                    ((Ball) go).setVita(((Ball) go).getVita() - 1);
+                    if(((BallPanel) parent).parent.audio) {
+                        audioPlayer.play("hit.wav");
+                    }
                 }
             }
         }

@@ -73,6 +73,9 @@ public class Ball extends Personaggio implements ActionListener {
     public void enemyCollide(Nemico n) {
         if (this.getBounds().intersects(n.getBounds())) {
             if (!isHittingEnemy) {
+                if(((BallPanel) parent).parent.audio) {
+                    audioPlayer.play("audio/hit.wav");
+                }
                 this.vita--;
                 this.jump(true);
                 isHittingEnemy = true;

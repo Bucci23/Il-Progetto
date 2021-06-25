@@ -10,7 +10,7 @@ public abstract class Personaggio extends AbstractGameObject {
     ImageIcon r;
     boolean isJumping;
     boolean isHittingEnemy;
-
+    AudioPlayer audioPlayer = new AudioPlayer();
     @Override
     public Rectangle getBounds() {
         return new Rectangle((int) x, (int) y, w, h);
@@ -47,6 +47,9 @@ public abstract class Personaggio extends AbstractGameObject {
         if (!this.isJumping || enemy) {
             if (!inWater) {
                 this.setSpeedY(-25);
+                if(!enemy && this instanceof Ball && ((BallPanel) parent).parent.audio){
+                    audioPlayer.play("audio/Salto.wav");
+                }
                 this.setJumping(true);
             } else {
                 this.setSpeedY(-10);

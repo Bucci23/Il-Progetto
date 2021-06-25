@@ -6,22 +6,22 @@ Scheletro.java
  Scheletro
 Ground.java
  Ground
-Fuoco.java
- Fuoco
+MainFrame.java
+ MainFrame
 Ball.java
  Ball
 Squalo.java
  Squalo
 PowerUp.java
  PowerUp
-Dinosauro.java
- Dinosauro
+Guida.java
+ Guida
 Coin.java
  Coin
 InvisibleWall.java
  InvisibleWall
-Vite.java
- Vite
+Salvadanaio.java
+ Salvadanaio
 Gorilla.java
  Gorilla
 Munizioni.java
@@ -30,8 +30,10 @@ Pinguino.java
  Pinguino
 Mummia.java
  Mummia
-DataBase.java
- DataBase
+Fine.java
+ Fine
+AudioPlayer.java
+ AudioPlayer
 AbstractGameObject.java
  AbstractGameObject
 Personaggio.java
@@ -40,15 +42,15 @@ GameObject.java
  GameObject
 Skills.java
  Skills
-Fine.java
- Fine
+Fuoco.java
+ Fuoco
+Vite.java
+ Vite
 BallPanel.java
  BallPanel
-Guida.java
- Guida
-Salvadanaio.java
- Salvadanaio
+Dinosauro.java
+ Dinosauro
 Water.java
  Water
-MainFrame.java
- MainFrame
+DataBase.java
+ DataBase
