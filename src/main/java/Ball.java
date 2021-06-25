@@ -44,9 +44,9 @@ public class Ball extends Personaggio implements ActionListener {
             shootDelay.start();
             munizioni--;
             if (icon == r)
-                lgo.add(new Fuoco(parent, lgo, 30, "images/fuoco.png", "images/fuocoSpecchiato.png", (int)(x + w), (int) (y + h / 3)));
+                lgo.add(new Fuoco(parent, lgo, 30, "images/fuoco.png", "images/fuocoSpecchiato.png", (int)(x + w), (int) (y + h / 3), false));
             if (icon == l)
-                lgo.add(new Fuoco(parent, lgo, -30, "images/fuoco.png", "images/fuocoSpecchiato.png", (int) x - w, (int) (y + h / 3)));
+                lgo.add(new Fuoco(parent, lgo, -30, "images/fuoco.png", "images/fuocoSpecchiato.png", (int) x - w, (int) (y + h / 3), false));
         }
     }
 

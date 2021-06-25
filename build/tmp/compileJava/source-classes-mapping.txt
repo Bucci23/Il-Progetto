@@ -1,39 +1,43 @@
-Fuoco.java
- Fuoco
+Munizioni.java
+ Munizioni
 GameObject.java
  GameObject
 DataBase.java
  DataBase
 Ground.java
  Ground
-Granchio.java
- Granchio
-Nemico.java
- Nemico
 Pinguino.java
  Pinguino
 Coin.java
  Coin
 Dinosauro.java
  Dinosauro
+InvisibleWall.java
+ InvisibleWall
+Granchio.java
+ Granchio
+Nemico.java
+ Nemico
+Scheletro.java
+ Scheletro
+Gorilla.java
+ Gorilla
 Ball.java
  Ball
 Squalo.java
  Squalo
 Skills.java
  Skills
+Fuoco.java
+ Fuoco
 PowerUp.java
  PowerUp
 Vite.java
  Vite
-InvisibleWall.java
- InvisibleWall
-Munizioni.java
- Munizioni
-Gorilla.java
- Gorilla
-Scheletro.java
- Scheletro
+Mummia.java
+ Mummia
+Fine.java
+ Fine
 BallPanel.java
  BallPanel
 AbstractGameObject.java
@@ -48,5 +52,3 @@ Water.java
  Water
 MainFrame.java
  MainFrame
-Mummia.java
- Mummia

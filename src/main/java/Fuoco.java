@@ -8,8 +8,8 @@ public class Fuoco extends AbstractGameObject {
     ImageIcon l;
     ImageIcon icon;
     boolean existing;
-
-    public Fuoco(JPanel parent, ArrayList<GameObject> lgo, int standardSpeed, String r, String l, int x, int y) {
+    boolean nemico;
+    public Fuoco(JPanel parent, ArrayList<GameObject> lgo, int standardSpeed, String r, String l, int x, int y, boolean nemico) {
         this.parent = parent;
         this.lgo = lgo;
         this.standardSpeed = standardSpeed;
@@ -20,6 +20,7 @@ public class Fuoco extends AbstractGameObject {
         w = 30;
         h = 20;
         this.existing = true;
+        this.nemico = nemico;
     }
 
     @Override
@@ -53,6 +54,12 @@ public class Fuoco extends AbstractGameObject {
             if ((go != this && !(go instanceof Ball)) && ((!(go instanceof PowerUp) && (!(go instanceof Nemico)))) && !(go instanceof Water)) {
                 if (this.getBounds().intersects(go.getBounds()))
                     setExisting(false);
+            }
+            if(go instanceof Ball && nemico){
+                if (this.getBounds().intersects(go.getBounds())) {
+                    setExisting(false);
+                    ((Ball) go).setVita(((Ball) go).getVita() -1);
+                }
             }
         }
     }
