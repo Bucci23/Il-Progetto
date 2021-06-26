@@ -3,8 +3,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Frame principale su cui si costruiscono i menu e su cui si carica il BallPanel.
+ */
 
 public class MainFrame extends JFrame implements ActionListener {
+    /**
+     * JLabel e JButton che compongono i vari menu
+     */
     JButton newGame;
     JButton next;
     JButton quit;
@@ -31,11 +37,14 @@ public class MainFrame extends JFrame implements ActionListener {
     JPanel GameMenu;
     JPanel settingPanel;
     JPanel info;
-    DataBase b;
-    int livello;
-    boolean audio;
-    boolean language;
+    DataBase b; //Oggetto per gestire i salvataggi
+    int livello; //Livello da caricare
+    boolean audio; //Determina se usare l'audio o meno
+    boolean language; //Lingua inglese o italiana
 
+    /**
+     * Costruttore che setta gli attributi del Frame e valori di default
+     */
     public MainFrame() {
         super("Scratch!");
         gameMenu();
@@ -49,22 +58,25 @@ public class MainFrame extends JFrame implements ActionListener {
 
     }
 
+    /**
+     * Metodo che mostra il menu Principale
+     */
     public void gameMenu() {
         GameMenu = new JPanel();
         BoxLayout b = new BoxLayout(GameMenu, BoxLayout.Y_AXIS);
         GameMenu.setLayout(b);
         if (!language) {
-            newGame = new JButton("NEW GAME");
-            next = new JButton("CONTINUE");
-            quit = new JButton("QUIT GAME");
-            options = new JButton("SETTINGS");
-            note = new JButton("INFO");
+            newGame = new JButton("new game");
+            next = new JButton("continue");
+            quit = new JButton("quit game");
+            options = new JButton("settings");
+            note = new JButton("info");
         } else {
-            newGame = new JButton("NUOVA PARTITA");
-            next = new JButton("CONTINUA");
-            quit = new JButton("ESCI DAL GIOCO");
-            options = new JButton("IMPOSTAZIONI");
-            note = new JButton("INFORMAZIONI");
+            newGame = new JButton("nuova partita");
+            next = new JButton("continua");
+            quit = new JButton("esci dal gioco");
+            options = new JButton("impostazioni");
+            note = new JButton("informazioni");
         }
 
         newGame.setFont(new Font("Mario Kart DS", Font.PLAIN, 125));
@@ -88,6 +100,9 @@ public class MainFrame extends JFrame implements ActionListener {
 
     }
 
+    /**
+     * Mostra il menu di impostazioni
+     */
     public void settings() {
         settingPanel = new JPanel(new GridLayout(3, 3));
         if (!language) {
@@ -132,6 +147,9 @@ public class MainFrame extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+    /**
+     * Metodo che carica il BallPanel al livello richiesto
+     */
     public void ballPanelLoad() {
         remove(GameMenu);
         p1 = new BallPanel();
@@ -141,6 +159,10 @@ public class MainFrame extends JFrame implements ActionListener {
         addKeyListener(p1);
         setVisible(true);
     }
+
+    /**
+     * Metodo che mostra la schermata delle informazioni
+     */
     public void showInfo() {
         info = new JPanel(new FlowLayout());
         BoxLayout b = new BoxLayout(info, BoxLayout.Y_AXIS);
@@ -200,10 +222,18 @@ public class MainFrame extends JFrame implements ActionListener {
 
     }
 
+    /**
+     * Main
+     * @param args args
+     */
     public static void main(String[] args) {
         new MainFrame();
     }
 
+    /**
+     * Gestisce gli eventi generati dai JButton presenti nei menu
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == newGame) {

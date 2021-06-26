@@ -3,11 +3,17 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Classe astratta che definisce le caratteristiche dei nemici
+ */
 public abstract class Nemico extends Personaggio {
-    boolean existing;
-    int standardSpeedX;
-    Random rnd = new Random();
+    boolean existing; //Determina se il nemico esiste o meno
+    int standardSpeedX; //Velocità standard del nemico
+    Random rnd = new Random(); //Variabile casuale per determinare le azioni del nemico
 
+    /**
+     * Costruttore che setta i parametri e i valori di default
+     */
     public Nemico(JPanel parent, ArrayList<GameObject> lgo, int x, int y, String r, String l) {
 
         this.parent = parent;
@@ -22,6 +28,9 @@ public abstract class Nemico extends Personaggio {
 
     }
 
+    /**
+     * Aggiorna lo stato del nemico e, ne fa eseguire le azioni se si trova in prossimità della Ball
+     */
     public void update() {
         gravity();
         jumpUpdate();
@@ -33,10 +42,17 @@ public abstract class Nemico extends Personaggio {
         newPositions();
     }
 
+    /**
+     * Disegna l'icona del nemico
+     * @param g
+     */
     public void paint(Graphics g) {
         icon.paintIcon(parent, g, (int) x, (int) y);
     }
 
+    /**
+     * Determina casualmente i movimenti del nemico
+     */
     public void movimento() {
         speedX = standardSpeedX;
         int jmp = rnd.nextInt(100);
@@ -59,6 +75,9 @@ public abstract class Nemico extends Personaggio {
         this.existing = existing;
     }
 
+    /**
+     * Quando il nemico è colpito dal fuoco perde 3 punti vita e se la vita = 0 setta existing a false.
+     */
     public void shootCollision() {
         for (GameObject go : lgo) {
             if (go != this) {

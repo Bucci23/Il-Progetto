@@ -5,14 +5,31 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
 
+/**
+ * Classe Ball, rappresenta il personaggio protagonista, controllato dal giocatore.
+ *
+ */
 public class Ball extends Personaggio implements ActionListener {
     Color color;
-    boolean isShooting;
-    Timer shootDelay;
-    Timer hitDelay;
-    int munizioni;
-    int monete;
+    boolean isShooting; //Determina se può sparare o no in un determinato momento
+    Timer shootDelay;  //Timer per settare un delay di 0.5 secondi dopo uno sparo
+    Timer hitDelay;  //Timer per dare invincibilità per 1 secondo dopo che il personaggio è stato colpito
+    int munizioni;  // Numero di munizioni disponibili
+    int monete;    //Numero di monete raccolte
 
+    /**
+     * Costruttore: setta i valori passati per parametro, inserisce valori di default e istanzia i timer
+
+     * @param parent Pannello a cui fa riferimento
+     * @param lgo lista di game object in cui sarà inserito
+     * @param w larghezza del personaggio
+     * @param h altezza del personaggio
+     * @param x posizione asse X
+     * @param y posizione asse Y
+     * @param speedX velocità asse X
+     * @param speedY velocità asse Y
+     * @param color colore
+     */
     public Ball(JPanel parent, ArrayList<GameObject> lgo, int w, int h, int x, int y, int speedX, int speedY, Color color) {
         this.parent = parent;
         this.lgo = lgo;
@@ -38,6 +55,11 @@ public class Ball extends Personaggio implements ActionListener {
         inWater = false;
     }
 
+    /**
+     * Metodo per sparare
+     * Controllo della variabile isShooting e del numero di munizioni.
+     * Quindi, a seconda dell'orientamento del personaggio, genera un oggetto Fuoco e lo aggiunge a lgo.
+     */
     void shoot() {
         if (!isShooting && munizioni > 0) {
             isShooting = true;
@@ -50,7 +72,9 @@ public class Ball extends Personaggio implements ActionListener {
         }
     }
 
-
+    /**
+     * Aggiorna lo stato del personaggio per il frame successivo
+     */
     @Override
     public void update() {
         gravity();
@@ -62,6 +86,11 @@ public class Ball extends Personaggio implements ActionListener {
 
     }
 
+    /**
+     * Fa eseguire l'abilità speciale al PowerUp e lo fa scomparire dalla scena
+     *
+     * @param c PowerUp che è stato raccolto
+     */
     @Override
     public void powerUpCollect(PowerUp c) {
         c.specialAbility(this);
@@ -69,6 +98,14 @@ public class Ball extends Personaggio implements ActionListener {
 
     }
 
+    /**
+     * Si controlla che il nemico e il personaggio si stiano toccando, cioè che i rettangoli determinati dalla funzione getBounds()
+     * si intersechino.
+     * Quindi si controlla il valore determinato dal timer di invincibilità hitDelay tramite la variabile isHittingEnemy
+     * Quindi si toglie una vita al personaggio e si riproduce il suono corrispondente
+     *
+     * @param n Nemico con cui controllare la collisione
+     */
     @Override
     public void enemyCollide(Nemico n) {
         if (this.getBounds().intersects(n.getBounds())) {
@@ -84,11 +121,19 @@ public class Ball extends Personaggio implements ActionListener {
         }
     }
 
+    /**
+     * Stampa l'imageIcon del personaggio
+     * @param g graphics
+     */
     @Override
     public void paint(Graphics g) {
         icon.paintIcon(parent, g,(int) x,(int) y);
     }
 
+    /**
+     * Aggiorna le variabili legate ai Timer per lo sparo e per i colpi
+     * @param e Evento da gestire
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == shootDelay) {
@@ -100,7 +145,7 @@ public class Ball extends Personaggio implements ActionListener {
             hitDelay.stop();
         }
     }
-
+    //alcuni getter e setter
     public int getMunizioni() {
         return munizioni;
     }

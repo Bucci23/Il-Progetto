@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.util.ArrayList;
-
+/**
+ * Classe che identifica un nemico standard
+ */
 public class Granchio extends Nemico {
 
     public Granchio(JPanel parent, ArrayList<GameObject> lgo, int x, int y, String r, String l) {

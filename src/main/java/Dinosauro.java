@@ -1,6 +1,9 @@
 import javax.swing.*;
 import java.util.ArrayList;
 
+/**
+ * Classe che identifica un nemico standard
+ */
 public class Dinosauro extends Nemico {
 
     public Dinosauro(JPanel parent, ArrayList<GameObject> lgo, int x, int y, String r, String l) {

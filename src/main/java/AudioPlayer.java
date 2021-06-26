@@ -2,8 +2,17 @@ import java.io.*;
 
 import javax.sound.sampled.*;
 
+/**
+ * Semplice classe con un solo metodo, che serve per riprodurre uno specificato file Audio
+ */
 public class AudioPlayer {
-    File audioFile;
+    File audioFile; //File audio da riprodurre
+
+    /**
+     * Metodo che riproduce il file audio.
+     *
+     * @param audioFile Nome del file audio da riprodurre
+     */
     public void play(String audioFile) {
         try {
             this.audioFile = new File(audioFile);
@@ -16,8 +25,6 @@ public class AudioPlayer {
 
             audioClip.open(audioInputStream);
             audioClip.start();
-            //audioClip.close();
-            //audioInputStream.close();
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
         }

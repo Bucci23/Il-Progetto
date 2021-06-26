@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.util.ArrayList;
-
+/**
+ * Classe che identifica un nemico standard
+ */
 public class Pinguino extends Nemico{
 
     public Pinguino(JPanel parent, ArrayList<GameObject> lgo, int x, int y, String r, String l) {

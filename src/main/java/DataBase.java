@@ -1,9 +1,18 @@
 import java.sql.*;
 
+/**
+ * Classe per la gestione del salvataggio su un DataBase SQLite.
+ */
 public class DataBase {
-    static Connection connection;
-    Statement statement;
-    ResultSet rs;
+    static Connection connection; //Oggetto per la connessione
+    Statement statement; //Oggetto per eseguire statement
+    ResultSet rs; //ResultSet per i risultati delle query
+
+    /**
+     * Salva il livello specificato sul DB, aggiornando il precedente
+     *
+     * @param livello livello da salvare
+     */
     public void save(int livello){
         try {
             connect();
@@ -18,6 +27,10 @@ public class DataBase {
 
     }
 
+    /**
+     * Legge il valore del livello che è salvato
+     * @return  valore del livello salvato
+     */
     public  int read(){
         int r = 0;
         try {
@@ -34,6 +47,10 @@ public class DataBase {
         return r;
     }
 
+    /**
+     * Per aprire una connessione al DB
+     * @throws SQLException
+     */
     public void connect() throws SQLException{
         try {
             Class.forName("org.sqlite.JDBC");
@@ -57,6 +74,10 @@ public class DataBase {
         }
 
     }
+
+    /**
+     * Per chiudere una connessione al DB
+     */
     public void connectClose(){
         try {
             statement.close();

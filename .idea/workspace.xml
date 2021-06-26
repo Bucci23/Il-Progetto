@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Celsius_Converter" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="958a0c82-2e9f-431c-bb90-7b1e26aacc6f" name="Default Changelist" comment="guida">
-      <change afterPath="$PROJECT_DIR$/src/main/java/AudioPlayer.java" afterDir="false" />
+    <list default="true" id="958a0c82-2e9f-431c-bb90-7b1e26aacc6f" name="Default Changelist" comment="audio">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Celsius_Converter.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
@@ -13,15 +18,39 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Ball.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Ball.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/BallPanel.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/MainFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AbstractGameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AbstractGameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AudioPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AudioPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ball.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BallPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BallPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Coin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Coin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Dinosauro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dinosauro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Fine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Fine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Fuoco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Fuoco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gorilla.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gorilla.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Granchio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Granchio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Ground.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ground.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Guida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Guida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/InvisibleWall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/InvisibleWall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Mummia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mummia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Munizioni.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Munizioni.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Nemico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Nemico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Personaggio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Personaggio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Pinguino.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Pinguino.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PowerUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PowerUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Salvadanaio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Salvadanaio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Scheletro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Scheletro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Skills.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Skills.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Squalo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Squalo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Vite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Water.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Water.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,9 +112,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../.." />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager" selected="Application.MainFrame">
@@ -425,7 +454,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624629562480</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="audio">
+      <created>1624632081409</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1624632081409</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -441,7 +477,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="prova" />
     <MESSAGE value="Aggiunto sfondo" />
     <MESSAGE value="spara" />
     <MESSAGE value="spara meglio" />
@@ -466,7 +501,8 @@
     <MESSAGE value="immagini" />
     <MESSAGE value="fine" />
     <MESSAGE value="guida" />
-    <option name="LAST_COMMIT_MESSAGE" value="guida" />
+    <MESSAGE value="audio" />
+    <option name="LAST_COMMIT_MESSAGE" value="audio" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

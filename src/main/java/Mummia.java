@@ -3,6 +3,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+/**
+ * Nemico finale, non si muove e spara.
+ */
 public class Mummia extends Nemico implements ActionListener {
     Timer sTimer;
     public Mummia(JPanel parent, ArrayList<GameObject> lgo, int x, int y, String r, String l) {
@@ -42,6 +45,10 @@ public class Mummia extends Nemico implements ActionListener {
 
     }
 
+    /**
+     * Quando scatta il timer (ogni 2 secondi) la mummia spara.
+     * @param e evento da gestire
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == sTimer){

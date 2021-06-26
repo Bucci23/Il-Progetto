@@ -1,6 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Oggetto che mostra le statistiche di munizioni, vite e monete
+ */
 public class Skills implements GameObject {
     int x;
     int y;
@@ -22,6 +25,10 @@ public class Skills implements GameObject {
 
     }
 
+    /**
+     * Disegna le icone e scrive le stringhe
+     * @param g
+     */
     @Override
     public void paint(Graphics g) {
         int base = 30;

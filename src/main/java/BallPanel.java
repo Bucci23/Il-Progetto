@@ -7,43 +7,50 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 
+/**
+ * Classe principale che costruisce e gestisce la scena da mostrare sullo schermo,
+ * Inizializza i livelli, gestisce la grafica e l'aggiornamento della scena.
+ */
 public class BallPanel extends JPanel implements KeyListener, ActionListener, MouseListener {
     @Serial
     private static final long serialVersionUID = 1L;
-    MainFrame parent;
-    Timer timer;
-    ArrayList<GameObject> lgo;
-    Guida guida;
-    int bX;
-    int bY;
-    int offset;
-    Random rnd;
-    ImageIcon background;
-    ImageIcon backgroundS;
-    ImageIcon gameOverImage;
-    ImageIcon gameOverRetry;
-    ImageIcon pauseImage;
-    ImageIcon pauseResume;
-    ImageIcon fondale;
-    ImageIcon lvSuperatoIMG;
-    boolean scrollingR;
-    boolean scrollingL;
-    boolean scrollingU;
-    boolean scrollingD;
-    boolean gameOver;
-    boolean animation;
-    boolean lvSuperato;
-    boolean language;
-    double sceneSpeedX;
-    double sceneSpeedY;
-    int ground;
-    Skills skills;
-    int livello;
-    boolean pause;
-    Timer GOTimer;
-    Timer PTimer;
-    Timer LTimer;
+    MainFrame parent;  //JFrame a cui fa riferimento
+    Timer timer; //Timer principale, setta il delay fra un frame e l'altro
+    ArrayList<GameObject> lgo; //Lista di tutti i GameObject che sono presenti
+    Guida guida; //Oggetto guida
+    int bX; //Posizione da cui parte lo sfondo asse X
+    int bY;//Posizione da cui parte lo sfondo asse Y
+    int offset; //Per gestire il movimento dello sfondo
+    Random rnd; //Per la generazione di numeri casuali
+    ImageIcon background; //Immagine di sfondo
+    ImageIcon backgroundS; //Immagine di sfondo specchiata
+    ImageIcon gameOverImage; //Immagine da mostrare al gameOver
+    ImageIcon gameOverRetry; //Immagine da mostrare al gameOver
+    ImageIcon pauseImage; //Immagine da mostrare alla pausa
+    ImageIcon pauseResume; //Immagine da mostrare alla pausa
+    ImageIcon fondale; //Immagine per simulare un ambiente sottomarino
+    ImageIcon lvSuperatoIMG; //Immagine mostrata al superamento di un livello
+    boolean scrollingR; //indica se la scena si sta muovendo verso destra
+    boolean scrollingL; //indica se la scena si sta muovendo verso sinistra
+    boolean scrollingU; //indica se la scena si sta muovendo verso l'alto
+    boolean scrollingD; //indica se la scena si sta muovendo verso il basso
+    boolean gameOver; //indica se siamo in stato di GameOver o meno
+    boolean animation; //se dobbiamo mostrare un frame o l'altro dell'animazione mostrata al GO o alla pausa
+    boolean lvSuperato;//se il livello è sato superato
+    boolean language; //La lingua da utilizzare
+    double sceneSpeedX; //Velocità della scena asse X
+    double sceneSpeedY; //Velocità della scena asse Y
+    int ground; //Valore di assy Y a cui c'è il limite inferiore non superabile dai personaggi
+    Skills skills; //Oggetto per mostrare statistiche sullo schermo
+    int livello; //Livello che sarà caricato
+    boolean pause; //Stato di play o di pausa
+    Timer GOTimer; //Timer Per animazione di gameOver
+    Timer PTimer; //Timer per animazione di Pausa
+    Timer LTimer; //Timer per avere un delay tra un lv ed il successivo
 
+    /**
+     * Costruttore, si inizializzano alcune variabili ai loro valori di default e si setta come KeyListener ed ActionListener questo oggetto.
+     */
     public BallPanel() {
         rnd = new Random();
         setBackground(Color.CYAN);
@@ -59,6 +66,13 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
 
     }
 
+    /**
+     * Riceve le info su lingua e livello che sono decise nel MainFrame
+     * Quindi carica il livello corrispondente, inizializza le immagini necessarie ed istanzia i Timer.
+     * @param livello livello da caricare
+     * @param language lingua da utilizzare
+     * @param parent MainFrame a cui fa riferimento
+     */
     public void init(int livello, boolean language, MainFrame parent) {
         lgo = new ArrayList<GameObject>();
         this.parent = parent;
@@ -115,6 +129,9 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
 
     }
 
+    /**
+     * Metodo per muovere la scena a destra
+     */
     public void moveSceneRight() {
         Ball b = (Ball) lgo.get(0);
         if (b.getSpeedX() + sceneSpeedX < 0) {
@@ -123,7 +140,9 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
 
 
     }
-
+    /**
+     * Metodo per muovere la scena a sinistra
+     */
     public void moveSceneLeft() {
         Ball b = (Ball) lgo.get(0);
         if (b.getSpeedX() + sceneSpeedX > 0) {
@@ -131,15 +150,44 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
 
         }
     }
+    /**
+     * Metodo per muovere la scena verso l'alto
+     */
+    public void moveSceneUp() {
+        Ball b = (Ball) lgo.get(0);
+        if (b.getSpeedY() + sceneSpeedY < 0) {
+            sceneSpeedY = -b.getSpeedY();
 
+        }
+    }
+
+    /**
+     * Metodo per muovere la scena verso il basso
+     */
+    public void moveSceneDown() {
+        Ball b = (Ball) lgo.get(0);
+        if (b.getSpeedY() + sceneSpeedY > 0) {
+            sceneSpeedY = -b.getSpeedY();
+        }
+    }
+
+    /**
+     * Metodo per fermare la scena sull'asse X
+     */
     public void stopSceneX() {
         this.sceneSpeedX = 0;
     }
-
+    /**
+     * Metodo per fermare la scena sull'asse X
+     */
     public void stopSceneY() {
         this.sceneSpeedY = 0;
     }
 
+    /**
+     * Metodo che determina se bisogna muovere la scena a destra in base alla posizione e alla velocità della Ball
+     *
+     */
     public void leftBound() {
         Ball b = (Ball) lgo.get(0);
         if (b.getX() <= 300 && b.speedX < 0) {
@@ -151,7 +199,10 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
             stopSceneX();
         }
     }
-
+    /**
+     * Metodo che determina se bisogna muovere la scena a sinistra in base alla posizione e alla velocità della Ball
+     *
+     */
     public void rightBound() {
         Ball b = (Ball) lgo.get(0);
         if (b.getX() + b.getW() >= this.getWidth() - 300 && b.speedX > 0) {
@@ -164,14 +215,10 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
         }
     }
 
-    public void moveSceneUp() {
-        Ball b = (Ball) lgo.get(0);
-        if (b.getSpeedY() + sceneSpeedY < 0) {
-            sceneSpeedY = -b.getSpeedY();
-
-        }
-    }
-
+    /**
+     * Metodo che determina se bisogna muovere la scena verso l'alto in base alla posizione e alla velocità della Ball
+     *
+     */
     public void upperBound() {
         Ball b = (Ball) lgo.get(0);
         if (b.getY() < 300 && b.speedY < 0) {
@@ -184,13 +231,10 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
         }
     }
 
-    public void moveSceneDown() {
-        Ball b = (Ball) lgo.get(0);
-        if (b.getSpeedY() + sceneSpeedY > 0) {
-            sceneSpeedY = -b.getSpeedY();
-        }
-    }
-
+    /**
+     * Metodo che determina se bisogna muovere la scena verso il basso in base alla posizione e alla velocità della Ball
+     *
+     */
     public void lowerBound() {
         Ball b = (Ball) lgo.get(0);
         groundUpdate();
@@ -204,11 +248,17 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
         }
     }
 
+    /**
+     * Aggiornamento posizione del background
+     */
     public void bUpdate() {
         bX += (sceneSpeedX / 3);
         bY += (sceneSpeedY / offset);
     }
 
+    /**
+     * Contiene un ciclo che controlla lo stato degli oggetti Fuoco, in cui quelli non più esistenti vengono rimossi dalla lgo
+     */
     private void shootUpdate() {
         Iterator<GameObject> i = lgo.iterator();
         while (i.hasNext()) {
@@ -221,7 +271,9 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
             }
         }
     }
-
+    /**
+     * Contiene un ciclo che controlla lo stato degli oggetti Nemico, in cui quelli non più esistenti vengono rimossi dalla lgo
+     */
     private void enemyUpdate() {
         Iterator<GameObject> i = lgo.iterator();
         while (i.hasNext()) {
@@ -235,6 +287,9 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
         }
     }
 
+    /**
+     * Contiene un ciclo che controlla lo stato degli oggetti PowerUp, in cui quelli non più esistenti vengono rimossi dalla lgo
+     */
     void powerUpUpdate() {
         Iterator<GameObject> i = lgo.iterator();
         while (i.hasNext()) {
@@ -248,10 +303,28 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
         }
     }
 
+    /**
+     * Aggiorna il valore del ground in base ai movimenti della scena.
+     */
     public void groundUpdate() {
         ground -= sceneSpeedY;
     }
 
+    /**
+     * Gestisce cosa succede allo scattare dei timer
+     * timer:
+     * Chiama tutti i metodi di aggiornamento della scena.
+     *
+     * GOTimer:
+     * aggiorna le animazioni ed effettua un repaint
+     *
+     * PTimer:
+     * Controlla che non siamo in gameOver ed aggiorna l'animazione per la pausa.
+     *
+     * LTimer:
+     * Inizializza il livello successivo.
+     * @param e Evento da gestire
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == timer) {
@@ -283,7 +356,11 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
 
     }
 
-
+    /**
+     * Disegna tutti i componenti della scena: il background, tutti i gameObjects, le skills, la guida e la pausa
+     *
+     * @param g Graphics
+     */
     @Override
     public void paintComponent(Graphics g) {
 
@@ -305,6 +382,12 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
 
     }
 
+    /**
+     * Metodo che disegna lo sfondo.
+     * L'immagine è ripetuta, alternandola con la sua versione specchiata per tutta la lunghezza del livello.
+     *
+     * @param g graphics
+     */
     public void paintBackground(Graphics g) {
         int count = 0;
         for (int i = bX - background.getIconWidth(); i < 10000 + bX; i += background.getIconWidth()) {
@@ -316,6 +399,10 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
         }
     }
 
+    /**
+     * Se siamo in pausa, stampa l'immagine di pausa, gestisce anche l'immagine di gameOver e l'immagine di livello superato.
+     * @param g
+     */
     public void paintPause(Graphics g) {
         if (pause) {
             timer.stop();
@@ -334,6 +421,10 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
         }
     }
 
+    /**
+     * gestisce l'animazione di gameOver
+     * @param g
+     */
     void paintGameOver(Graphics g) {
         if (animation) {
             gameOverImage.paintIcon(this, g, 0, 0);
@@ -342,6 +433,9 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
         }
     }
 
+    /**
+     * Controlla se la Ball ha 0 vite, per determinare l'eventuale gameOver.
+     */
     void checkDeath() {
         Ball mainBall = (Ball) lgo.get(0);
         if (mainBall.getVita() <= 0) {
@@ -351,6 +445,9 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
         }
     }
 
+    /**
+     * Se il livello è superato, mette in pausa e fa partire il timer per caricare il lv successivo.
+     */
     void checkLVSuperato() {
         if (lvSuperato) {
             pause = true;
@@ -358,11 +455,20 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
         }
     }
 
+    /**
+     * Non fa nulla
+     * @param e
+     */
     @Override
     public void keyTyped(KeyEvent e) {
 
     }
 
+    /**
+     * Gestisce l'input da tastiera
+     *
+     * @param e
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         if (!(lgo.get(0) instanceof Ball)) {
@@ -407,6 +513,9 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
 
     }
 
+    /**
+     * Carica il lv1
+     */
     void initLV1() {
         ground = -10000;
         background = new ImageIcon("images/deserto.jpg");
@@ -454,7 +563,9 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
         lgo.add(new InvisibleWall(this, lgo, 10000, 100, 0, 1500, 0, 0, null, null, true));
 
     }
-
+    /**
+     * Carica il lv2
+     */
     void initLV2() {
         ground = -10000;
         bY = -400;
@@ -507,7 +618,9 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
 
 
     }
-
+    /**
+     * Carica il lv3
+     */
     void initLV3() {
         ground = -10000;
         background = new ImageIcon("images/ghiaccio.jpg");
@@ -562,7 +675,9 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
         lgo.add(new Ground(this, lgo, 100, 10000, -100, 0, 0, 0, null, null));
         lgo.add(new Ground(this, lgo, 100, 10000, 10000, 0, 0, 0, null, null));
     }
-
+    /**
+     * Carica il lv4
+     */
     void initLV4() {
         ground = -10000;
         bY = -150;
@@ -619,7 +734,9 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
         lgo.add(new Ground(this, lgo, 100, 10000, -100, 0, 0, 0, null, null));
         lgo.add(new Ground(this, lgo, 100, 10000, 10000, 0, 0, 0, null, null));
     }
-
+    /**
+     * Carica il lv5
+     */
     void initLV5(){
         ground = -10000;
         bY = 0;
@@ -657,6 +774,9 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
         lgo.add(new Ground(this, lgo, 100, 10000, -100, 0, 0, 0, null, null));
         lgo.add(new Ground(this, lgo, 100, 10000, 10000, 0, 0, 0, null, null));
     }
+    /**
+     * Carica il lv Finale, che ha una semplice immagine di congratulazioni
+     */
     void initFINE(){
         background = new ImageIcon("images/spiaggia.jpg");
         backgroundS = new ImageIcon("images/spiaggiaS.jpg");
@@ -668,6 +788,10 @@ public class BallPanel extends JPanel implements KeyListener, ActionListener, Mo
             lgo.add(new Fine(this, "images/fineENG.png"));
     }
 
+    /**
+     * Gestisce l'input del mouse
+     * @param e MouseEvent da gestire
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         if (e.getX() >= getWidth() - 100 && e.getY() <= 100) {

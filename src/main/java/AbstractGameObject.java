@@ -1,13 +1,18 @@
 import javax.swing.*;
 import java.util.ArrayList;
 
+/**
+ * Classe astratta che definisce alcuni metodi e attributi che avranno tutti gli oggetti del gioco
+ *
+ */
 public abstract class AbstractGameObject implements GameObject {
-    JPanel parent;
-    ArrayList<GameObject> lgo;
-    int w, h;
-    double x, y;
-    double speedX, speedY;
+    JPanel parent; //Pannello a cui farà riferimento
+    ArrayList<GameObject> lgo; //Lista di gameObject a cui apparterrà
+    int w, h; //Larghezza e altezza
+    double x, y; //Posizione x e y
+    double speedX, speedY; //Velocità x e y
 
+    //Getter e setter
     public int getW() {
         return w;
     }
@@ -56,6 +61,7 @@ public abstract class AbstractGameObject implements GameObject {
         this.speedY = speedY;
     }
 
+    //Metodo che calcola la posizione che avrà l'oggetto nel frame successivo
     public void newPositions() {
         BallPanel par = (BallPanel) parent;
         x += speedX + par.sceneSpeedX;

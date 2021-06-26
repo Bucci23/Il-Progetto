@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.util.ArrayList;
-
+/**
+ * Classe che identifica un nemico standard
+ */
 public class Gorilla extends Nemico{
     public Gorilla(JPanel parent, ArrayList<GameObject> lgo, int x, int y, String r, String l) {
         super(parent, lgo, x, y, r, l);

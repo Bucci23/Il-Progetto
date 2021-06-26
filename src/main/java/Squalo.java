@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.util.ArrayList;
-
+/**
+ * Classe che identifica un nemico standard, essendo in acqua salta più spesso
+ */
 public class Squalo extends Nemico {
 
     public Squalo(JPanel parent, ArrayList<GameObject> lgo, int x, int y, String r, String l) {

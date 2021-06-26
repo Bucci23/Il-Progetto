@@ -2,6 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * Oggetto che identifica una pozione, se raccolta ripristina le 5 vite alla Ball
+ */
 public class Vite extends PowerUp {
     public Vite(JPanel parent, ArrayList<GameObject> lgo, int x, int y, String icon) {
         super(parent, lgo, x, y, icon);

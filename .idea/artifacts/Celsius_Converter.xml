@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="Celsius_Converter">
+    <output-path>$PROJECT_DIR$/../../../../../..</output-path>
+    <root id="root">
+      <element id="archive" name="Celsius_Converter.jar">
+        <element id="module-output" name="Celsius_Converter" />
+      </element>
+    </root>
+  </artifact>
+</component>

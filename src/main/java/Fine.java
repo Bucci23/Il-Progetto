@@ -1,6 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Oggetto da caricare nella schermata di congratulazioni.
+ * Una semplice immagine che compare in primo piano.
+ */
 public class Fine extends AbstractGameObject{
     ImageIcon icon;
     public Fine(BallPanel parent, String icon){

@@ -2,19 +2,24 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.font.ImageGraphicAttribute;
 
+/**
+ * Classe che identifica l'oggetto che fa concludere il livello
+ */
 public class Salvadanaio extends AbstractGameObject {
-    ImageIcon icon;
-    ImageIcon vignetta;
-    ImageIcon vignettaSuperato;
-    int livello;
-    int moneteRichieste;
-    boolean lvSuperato;
-    boolean showAnimation;
+    ImageIcon icon; //Icona del salvadanaio
+    ImageIcon vignetta; //Vignetta con messaggio mostrata se si avvicina la Ball
+    ImageIcon vignettaSuperato; //Vignetta livello superato
+    int livello;//Livello in cui compare
+    int moneteRichieste; //Monete richieste per superarlo
+    boolean lvSuperato; //lv superato o meno
+    boolean showAnimation; //Mostrare vignette o meno
 
-    DataBase save;
-    BallPanel ballPanel;
+    DataBase save; //Per salvare in caso di superamento
+    BallPanel ballPanel; //Pannello a cui fa riferimento
 
-
+    /**
+     * Costruttore che setta i parametri e i valori di default, setta l'icona in base al livello
+     */
     public Salvadanaio(BallPanel ballPanel, double x, double y, int livello, String vignetta, String vignettaSuperato) {
         this.ballPanel = ballPanel;
         parent = ballPanel;
@@ -52,11 +57,18 @@ public class Salvadanaio extends AbstractGameObject {
         save = new DataBase();
     }
 
+    /**
+     * Aggiorna la posizione
+     */
     @Override
     public void update() {
         newPositions();
     }
 
+    /**
+     * Disegna l'icona ed eventualmente le vignette
+     * @param g
+     */
     @Override
     public void paint(Graphics g) {
         icon.paintIcon(parent, g, (int) x, (int) y);
@@ -73,6 +85,10 @@ public class Salvadanaio extends AbstractGameObject {
         return new Rectangle((int) x, (int) y, w, h);
     }
 
+    /**
+     * Determina la collisione con la Ball e che vignetta mostrare
+     * @param ball
+     */
     public void isColliding(Ball ball) {
         if (this.getBounds().intersects(ball.getBounds())) {
             if (ball.monete >= moneteRichieste) {
@@ -90,6 +106,9 @@ public class Salvadanaio extends AbstractGameObject {
         return lvSuperato;
     }
 
+    /**
+     * Salva il gioco sul DB
+     */
     public void saveGame(){
         save.save(livello + 1);
     }

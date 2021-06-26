@@ -1,6 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Semplice immagine che simula l'effetto di un fondale marino
+ * Quando un personaggio la percorre, si setta l'attributo inWater a true.
+ */
 public class Water extends AbstractGameObject{
     ImageIcon wIcon;
 

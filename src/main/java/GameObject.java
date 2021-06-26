@@ -1,5 +1,8 @@
 import java.awt.*;
 
+/**
+ * Interfaccia che definisce i metodi che devono avere gli oggetti di gioco
+ */
 public interface GameObject {
     void update();
     void paint(Graphics g);
