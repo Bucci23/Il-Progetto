@@ -1,56 +1,56 @@
-Granchio.java
- Granchio
-Nemico.java
- Nemico
-Scheletro.java
- Scheletro
-Ground.java
- Ground
-MainFrame.java
- MainFrame
-Ball.java
- Ball
-Squalo.java
- Squalo
-PowerUp.java
- PowerUp
-Guida.java
- Guida
-Coin.java
- Coin
-InvisibleWall.java
- InvisibleWall
-Salvadanaio.java
- Salvadanaio
-Gorilla.java
- Gorilla
-Munizioni.java
- Munizioni
-Pinguino.java
- Pinguino
-Mummia.java
- Mummia
-Fine.java
- Fine
-AudioPlayer.java
- AudioPlayer
-AbstractGameObject.java
- AbstractGameObject
-Personaggio.java
- Personaggio
-GameObject.java
- GameObject
-Skills.java
- Skills
-Fuoco.java
- Fuoco
-Vite.java
- Vite
-BallPanel.java
- BallPanel
-Dinosauro.java
- Dinosauro
-Water.java
- Water
-DataBase.java
- DataBase
+FileManagement/AudioPlayer.java
+ FileManagement.AudioPlayer
+GameObjects/Skills.java
+ GameObjects.Skills
+GameObjects/Squalo.java
+ GameObjects.Squalo
+GameObjects/PowerUp.java
+ GameObjects.PowerUp
+GameObjects/Scheletro.java
+ GameObjects.Scheletro
+GameObjects/GameObject.java
+ GameObjects.GameObject
+GameObjects/Dinosauro.java
+ GameObjects.Dinosauro
+GameObjects/Vite.java
+ GameObjects.Vite
+GameObjects/InvisibleWall.java
+ GameObjects.InvisibleWall
+GameObjects/Granchio.java
+ GameObjects.Granchio
+GameObjects/Nemico.java
+ GameObjects.Nemico
+GameObjects/Ground.java
+ GameObjects.Ground
+GameObjects/Mummia.java
+ GameObjects.Mummia
+GameObjects/Gorilla.java
+ GameObjects.Gorilla
+GameObjects/Munizioni.java
+ GameObjects.Munizioni
+GameObjects/Pinguino.java
+ GameObjects.Pinguino
+GameObjects/AbstractGameObject.java
+ GameObjects.AbstractGameObject
+FileManagement/DataBase.java
+ FileManagement.DataBase
+GameObjects/Ball.java
+ GameObjects.Ball
+GameObjects/Coin.java
+ GameObjects.Coin
+GameObjects/Fine.java
+ GameObjects.Fine
+GameObjects/Water.java
+ GameObjects.Water
+Engine/MainFrame.java
+ Engine.MainFrame
+GameObjects/Guida.java
+ GameObjects.Guida
+GameObjects/Personaggio.java
+ GameObjects.Personaggio
+GameObjects/Fuoco.java
+ GameObjects.Fuoco
+GameObjects/Salvadanaio.java
+ GameObjects.Salvadanaio
+Engine/BallPanel.java
+ Engine.BallPanel

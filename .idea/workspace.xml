@@ -9,8 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="958a0c82-2e9f-431c-bb90-7b1e26aacc6f" name="Default Changelist" comment="audio">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Celsius_Converter.xml" afterDir="false" />
+    <list default="true" id="958a0c82-2e9f-431c-bb90-7b1e26aacc6f" name="Default Changelist" comment="Commenti">
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
@@ -18,39 +17,42 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/MainFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/AbstractGameObject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Ball.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/BallPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/GameObject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Ground.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/MainFrame.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AbstractGameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AbstractGameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AudioPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AudioPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ball.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BallPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BallPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Coin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Coin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dinosauro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dinosauro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Fine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Fine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Fuoco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Fuoco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gorilla.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gorilla.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Granchio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Granchio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Ground.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ground.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Guida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Guida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/InvisibleWall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/InvisibleWall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Mummia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Mummia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Munizioni.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Munizioni.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Nemico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Nemico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Personaggio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Personaggio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Pinguino.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Pinguino.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PowerUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PowerUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Salvadanaio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Salvadanaio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Scheletro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Scheletro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Skills.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Skills.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Squalo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Squalo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Vite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Vite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Water.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Water.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AbstractGameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameObjects/AbstractGameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AudioPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FileManagement/AudioPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameObjects/Ball.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BallPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/BallPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Coin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameObjects/Coin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FileManagement/DataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Dinosauro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameObjects/Dinosauro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Fine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameObjects/Fine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Fuoco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameObjects/Fuoco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameObjects/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gorilla.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameObjects/Gorilla.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Granchio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameObjects/Granchio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Ground.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameObjects/Ground.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Guida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameObjects/Guida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/InvisibleWall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameObjects/InvisibleWall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Mummia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameObjects/Mummia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Munizioni.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameObjects/Munizioni.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Nemico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameObjects/Nemico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Personaggio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameObjects/Personaggio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Pinguino.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameObjects/Pinguino.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PowerUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameObjects/PowerUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Salvadanaio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameObjects/Salvadanaio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Scheletro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameObjects/Scheletro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Skills.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameObjects/Skills.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Squalo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameObjects/Squalo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Vite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameObjects/Vite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Water.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameObjects/Water.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +93,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -111,7 +118,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../progetto" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -126,7 +133,7 @@
       </method>
     </configuration>
     <configuration name="MainFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MainFrame" />
+      <option name="MAIN_CLASS_NAME" value="Engine.MainFrame" />
       <module name="Celsius_Converter.main" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -461,7 +468,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624632081409</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Commenti">
+      <created>1624705250793</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1624705250793</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -477,7 +491,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Aggiunto sfondo" />
     <MESSAGE value="spara" />
     <MESSAGE value="spara meglio" />
     <MESSAGE value="Contatore cuori e fuoco" />
@@ -502,7 +515,8 @@
     <MESSAGE value="fine" />
     <MESSAGE value="guida" />
     <MESSAGE value="audio" />
-    <option name="LAST_COMMIT_MESSAGE" value="audio" />
+    <MESSAGE value="Commenti" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commenti" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
